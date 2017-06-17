@@ -237,7 +237,7 @@
                         <div class="col-md-4 col-sm-4">
                         <div class="card product-box">
                             <figure>
-                                <span class="price-tag">Rp. <?php echo $el->harga_tiket; ?></span>
+                                <span class="price-tag">Rp. <?php echo number_format($el->harga_tiket) ; ?></span>
 
                                 <a href="#" class="overlay image-effect"> 
                                     <img class="card-img-top" src="<?php echo base_url() ?>assets/event/<?php echo $el->poster; ?>" alt="Card image ">
@@ -260,9 +260,14 @@
                                     </p>
                                 </div>
                                 </div>
-                                <a href="<?php echo base_url().'beranda/pemesanan_tiket_beranda/'.$el->id_event; ?>" class="btn cart-btn rounded-0">
-                                <i><img src="<?php echo base_url() ?>assets/images/cart-icon.png" alt=""></i> Pesan tiket
-                            </a>
+                                <?php if ($el->status_terlaksana == 'Belum') { ?>
+                                    <a href="<?php echo base_url().'beranda/pemesanan_tiket_beranda/'.$el->id_event; ?>" class="btn cart-btn rounded-0">
+                                    <i><img src="<?php echo base_url() ?>assets/images/cart-icon.png" alt=""></i> Pesan tiket</a>
+                                <?php
+                                }else{
+                                ?>
+                                <a class="btn cart-btn rounded-0">Acara Sudah Lewat</a>
+                                <?php } ?>
                         </div>
                         </div>
                      <?php
