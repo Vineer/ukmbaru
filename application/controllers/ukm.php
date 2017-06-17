@@ -190,30 +190,21 @@
 		function input_pemesanan_tiket(){
 			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 	        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
-	        $this->form_validation->set_rules('fakultas', 'Fakultas', 'trim|required');
-	        $this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required');
+	        $this->form_validation->set_rules('acara', 'Acara', 'trim|required');
 	        $this->form_validation->set_rules('jml_tiket', 'Jumlah Tiket', 'trim|required|numeric');
-	        $this->form_validation->set_rules('no_telp', 'No Telepon', 'trim|required');
-	        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 	        if ($this->form_validation->run() == FALSE) {
 	        	$this->load->view('form_pesan_tiket');
 	        }else{
 				$nama = $this->input->post('nama');
 				$nim = $this->input->post('nim');
-				$fakultas = $this->input->post('fakultas');
-				$jurusan = $this->input->post('jurusan');
+				$acara = $this->input->post('acara');
 				$jml_tiket = $this->input->post('jml_tiket');
-				$nohp = $this->input->post('no_telp');
-				$email = $this->input->post('email');
 				
 				$data = array(
 								'nama_mhs'=>$nama,
 								'nim'=>$nim,
-								'fakultas'=>$fakultas,
-								'jurusan'=>$jurusan,
-								'jml_tiket'=>$jml_tiket,
-								'no_telp'=>$nohp,
-								'email'=>$email,
+								'acara'=>$acara,
+								'jml_tiket'=>$jml_tiket
 							);
 				$exec = $this->m_ukm->input_data($data,'data_pesan_tiket');
 				$cek = $this->db->order_by('kd_booking desc')->limit(1)->get('data_pesan_tiket')->row();

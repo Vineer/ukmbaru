@@ -173,7 +173,8 @@ class beranda extends CI_Controller {
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
-		$this->load->view('form_pesan_tiket');
+		$data['acara'] = $this->db->query("select * from event where status_terlaksana = 'Belum' ");
+		$this->load->view('form_pesan_tiket',$data);
 	}
 	public function bukti_transfer(){
 		if ($this->session->userdata('username') == null) {

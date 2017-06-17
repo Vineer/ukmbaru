@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2017 at 10:57 AM
+-- Generation Time: Jun 17, 2017 at 05:22 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -186,11 +186,8 @@ CREATE TABLE `data_pesan_tiket` (
   `kd_booking` int(10) NOT NULL,
   `nama_mhs` varchar(100) NOT NULL,
   `nim` varchar(10) NOT NULL,
-  `fakultas` varchar(50) NOT NULL,
-  `jurusan` varchar(50) NOT NULL,
+  `acara` varchar(100) NOT NULL,
   `jml_tiket` varchar(50) NOT NULL,
-  `no_telp` varchar(25) NOT NULL,
-  `email` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -198,11 +195,15 @@ CREATE TABLE `data_pesan_tiket` (
 -- Dumping data for table `data_pesan_tiket`
 --
 
-INSERT INTO `data_pesan_tiket` (`kd_booking`, `nama_mhs`, `nim`, `fakultas`, `jurusan`, `jml_tiket`, `no_telp`, `email`, `status`) VALUES
-(1, 'Dinda Wijayanti', '6701140221', 'FIT', 'MI', '3', '0875583', 'DINDAVHBS', 'Lunas'),
-(2, 'qwe', '342342', 'FIT', 'MI', '10', 'ryanisml', 'ryanisml@gmail.com', 'Lunas'),
-(3, 'resita tri sukmawati', '6701140223', 'FIT', 'MI', '2', '081333840010', 'resitatrisukma30@gmail.com', ''),
-(5, 'tety handayani', '6701140076', 'FIT', 'MI', '5', '082135647', 'tety@gmail.com', '');
+INSERT INTO `data_pesan_tiket` (`kd_booking`, `nama_mhs`, `nim`, `acara`, `jml_tiket`, `status`) VALUES
+(1, 'Dinda Wijayanti', '6701140221', '', '3', 'Lunas'),
+(2, 'qwe', '342342', '', '10', 'Lunas'),
+(3, 'resita tri sukmawati', '6701140223', '', '2', ''),
+(5, 'tety handayani', '6701140076', '', '5', ''),
+(6, 'Testes', '123123123', '', '2', ''),
+(7, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '2', ''),
+(8, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '4', ''),
+(9, 'Resita Tri Sukmawati', '6701140223', 'Gala Abhinaya', '3', '');
 
 -- --------------------------------------------------------
 
@@ -216,7 +217,7 @@ CREATE TABLE `event` (
   `tanggal` date DEFAULT NULL,
   `tempat` varchar(50) DEFAULT NULL,
   `waktu` time DEFAULT NULL,
-  `harga_tiket` varchar(100) NOT NULL,
+  `harga_tiket` int(100) NOT NULL,
   `penyelenggara` varchar(200) NOT NULL,
   `poster` varchar(200) NOT NULL,
   `konten` varchar(5000) NOT NULL,
@@ -231,10 +232,10 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id_event`, `nama_event`, `tanggal`, `tempat`, `waktu`, `harga_tiket`, `penyelenggara`, `poster`, `konten`, `id_ukm`, `status_approval`, `status_terlaksana`, `rating`) VALUES
-(235243, 'Dies Natalis XXIV - Calonarang', '2017-04-16', 'Gedung Serba Guna Universitas Telkom', '18:00:00', '', 'UKM Kesenian Bali Widyacana Murti', '10372.jpg', '<div>Rasakan Suasana Bali disini!</div><div>Dies Natalis XXIV UKM Kesenian Bali Widyacanamurti</div><div>Pre-event [Free Entry]</div><div>16 April 2016</div><div>19.00 WIB</div><div><br></div><div>Sendratari Calonarang Part I</div><div>Pawai Ogoh-ogoh</div><div>Barong Bangkung</div><div>Baleganjur</div><div>Fire Dance</div><div><br></div><div>Start : ATM Centre FRI</div><div>Finish : Gd Tokong Nanas</div><div><br></div><div>Peak Event [Presale 2 IDR 25K/ OTS IDR 30K]</div><div>23 April 2016</div><div>Open gate 18.00 WIB</div><div><br></div><div>Sendratari Calonarang part II</div><div>Musik Kolaborasi Kontemporer</div><div>Tari Siwa Nataraja</div><div>Tari Sekar Jagat</div><div>Tari Sekar Ibing</div><div><br></div><div>At Gedung Serba Guna</div><div><br></div><div>Untuk puncak acara jangan lupa beli tiketnya yang bisa didapatkan langsung dengan menghubungi :</div><div><br></div><div>Official Line Account : @eaq3792d</div><div>LINE : bayupurnama_</div>', 123, 1, 'Belum', 1),
-(235244, 'Pagelaran Seni dan Budaya Betawie', '2017-04-02', 'Aula FIT', '19:00:00', '', 'UKM Betawie', 'UKM_Betawie3.jpg', '<div>Panggilan untuk abang mpok semuanyeeeeee!!!!!!!!! UKM Betawie telkom University dengan bangga nampilin \"PAGELARAN SENI &nbsp;DAN BUDAYA BETAWIE 2016\"</div><div>Hari/Tanggal : Sabtu 2 april 2016</div><div>Tempat : Aula FIT</div><div>Ebuset masa iya kaga dateng !! Kapan lagi nih abang mpok bisa nonton&nbsp;</div><div>pertunjukan nyang megah tentang kebudayaan betawi di tanah sunda ini.</div><div>Nyokk dahh semuanye datang dan ramein nihh acara Budaya Betawi tercinte.&nbsp;</div><div>Aye jamin, kaga bakal ada yang nyesel dahh</div><div>Lebih lengkapnye lagi, lu pada bisa tanya tanya nih ke orang ini :</div><div>Id line : widyalifianti / 089679931848</div><div>#Pagelaranbetawie2016</div><div>#betawiepunyagaye</div>', NULL, 1, 'Sudah', 2),
-(235245, 'Alek Rang Minang feat Ajo Buset', '2017-04-16', 'Aula Fakultas Komunikasi Bisnis Telkom University', '19:00:00', '', 'UKM Rumah Gadang', 'rumah_gadang.jpg', '<div>Iko nyo nan dinanti nanti kini lah tibo,</div><div>Alek bukan sumbarang alek, aleknyo bujang jo gadih minang ditanah rantau</div><div>RUMAH GADANG TELKOM UNIVERSITY Proudly Present</div><div>Grand Launching Rumah Gadang Telkom University ALEK RANG MINANG \"Maluruihkan Bandang Nan Kusuik\" Ft. Ajo Buset</div><div>Drama, Tari, Randai, Silek, dan musik tradisional Minangkabau dikemas menjadi sebuah pertunjukan menarik dan sangat ditunggu.</div><div>Hari: Sabtu, 16 April 2016</div><div>Tempat: Aula Fakultas Komunikasi Bisnis, Telkom University</div><div>Note the date from NOW!</div><div>#ARM2016</div><div>#RumahGadangTelkom</div>', NULL, 1, 'Sudah', 0),
-(235246, 'Gala Abhinaya', '2017-04-26', 'Lapangan Parkir Telkom Convention Hall', '15:00:00', '', 'UKM Band', 'Ukm_band.jpg', '<div>UKM BAND Telkom University</div><div>Mempersembahkan</div><div>GALA ABHINAYA</div><div>\"Satukan Budaya dengan Irama\"</div><div>Dibintangi oleh :</div><div>- ALEXA</div><div>- Barry Likumahuwa \"Feel Good Collective\"</div><div>- \"Arumba\" by Saung Angklung Udjo</div><div>Penampilan Tradisional oleh :</div><div>- UKM Permala (Lampung)</div><div>- UKM KBMS (Sulawesi)</div><div>- UKM Bali Widyacana Murti</div><div>Penampilan Band oleh :</div><div>- SEREVINA &amp; friends</div><div>- Green Tea Latte</div><div>dan kunjungi juga Culinary Festival!!</div><div>Dilaksanakan pada :</div><div>April 26th, 2015</div><div>di Lapangan Parkir Telkom Convention Hall</div><div>Jl.Telekomunkasi no.1, Dayeuhkolot, Bandung</div><div>Mulai Pukul :</div><div>15.00 WIB</div><div>Tiket :</div><div>Presale 1 : IDR 28.000 (21 Mar - 5 Apr 2015)</div><div>Presale 2 : IDR 38.000 (6 Apr - 16 Apr 2015)</div><div>OTS : IDR 50.000</div><div>Contact Person :</div><div>- Untuk Tiket :</div><div>Muhe : 0853 5290 9966</div><div>Eddy : 0857 3970 6333&nbsp;</div><div>- Untuk Event :</div><div>Arvel : 0813 1850 6384</div><div>Ilham : 0812 90 575 909</div><div>Stand Tiket :</div><div>Kantin TES (Business Center)</div><div>Senin - Jumat, 12.00 - 16.00 WIB</div><div>Nikmatilah atmosfir dari kebudayaan tradisonal Indonesia yang dipadukan oleh modernisasi, hanya di GALA ABHINAYA!</div><div>Twitter &amp; Instagram :</div><div>@UKMBANDUNITEL</div>', NULL, 1, 'Belum', 0);
+(235243, 'Dies Natalis XXIV - Calonarang', '2017-04-16', 'Gedung Serba Guna Universitas Telkom', '18:00:00', 50000, 'UKM Kesenian Bali Widyacana Murti', '10372.jpg', '<div>Rasakan Suasana Bali disini!</div><div>Dies Natalis XXIV UKM Kesenian Bali Widyacanamurti</div><div>Pre-event [Free Entry]</div><div>16 April 2016</div><div>19.00 WIB</div><div><br></div><div>Sendratari Calonarang Part I</div><div>Pawai Ogoh-ogoh</div><div>Barong Bangkung</div><div>Baleganjur</div><div>Fire Dance</div><div><br></div><div>Start : ATM Centre FRI</div><div>Finish : Gd Tokong Nanas</div><div><br></div><div>Peak Event [Presale 2 IDR 25K/ OTS IDR 30K]</div><div>23 April 2016</div><div>Open gate 18.00 WIB</div><div><br></div><div>Sendratari Calonarang part II</div><div>Musik Kolaborasi Kontemporer</div><div>Tari Siwa Nataraja</div><div>Tari Sekar Jagat</div><div>Tari Sekar Ibing</div><div><br></div><div>At Gedung Serba Guna</div><div><br></div><div>Untuk puncak acara jangan lupa beli tiketnya yang bisa didapatkan langsung dengan menghubungi :</div><div><br></div><div>Official Line Account : @eaq3792d</div><div>LINE : bayupurnama_</div>', 123, 1, 'Belum', 1),
+(235244, 'Pagelaran Seni dan Budaya Betawie', '2017-04-02', 'Aula FIT', '19:00:00', 30000, 'UKM Betawie', 'UKM_Betawie3.jpg', '<div>Panggilan untuk abang mpok semuanyeeeeee!!!!!!!!! UKM Betawie telkom University dengan bangga nampilin \"PAGELARAN SENI &nbsp;DAN BUDAYA BETAWIE 2016\"</div><div>Hari/Tanggal : Sabtu 2 april 2016</div><div>Tempat : Aula FIT</div><div>Ebuset masa iya kaga dateng !! Kapan lagi nih abang mpok bisa nonton&nbsp;</div><div>pertunjukan nyang megah tentang kebudayaan betawi di tanah sunda ini.</div><div>Nyokk dahh semuanye datang dan ramein nihh acara Budaya Betawi tercinte.&nbsp;</div><div>Aye jamin, kaga bakal ada yang nyesel dahh</div><div>Lebih lengkapnye lagi, lu pada bisa tanya tanya nih ke orang ini :</div><div>Id line : widyalifianti / 089679931848</div><div>#Pagelaranbetawie2016</div><div>#betawiepunyagaye</div>', NULL, 1, 'Sudah', 2),
+(235245, 'Alek Rang Minang feat Ajo Buset', '2017-04-16', 'Aula Fakultas Komunikasi Bisnis Telkom University', '19:00:00', 25000, 'UKM Rumah Gadang', 'rumah_gadang.jpg', '<div>Iko nyo nan dinanti nanti kini lah tibo,</div><div>Alek bukan sumbarang alek, aleknyo bujang jo gadih minang ditanah rantau</div><div>RUMAH GADANG TELKOM UNIVERSITY Proudly Present</div><div>Grand Launching Rumah Gadang Telkom University ALEK RANG MINANG \"Maluruihkan Bandang Nan Kusuik\" Ft. Ajo Buset</div><div>Drama, Tari, Randai, Silek, dan musik tradisional Minangkabau dikemas menjadi sebuah pertunjukan menarik dan sangat ditunggu.</div><div>Hari: Sabtu, 16 April 2016</div><div>Tempat: Aula Fakultas Komunikasi Bisnis, Telkom University</div><div>Note the date from NOW!</div><div>#ARM2016</div><div>#RumahGadangTelkom</div>', NULL, 1, 'Sudah', 0),
+(235246, 'Gala Abhinaya', '2017-04-26', 'Lapangan Parkir Telkom Convention Hall', '15:00:00', 75000, 'UKM Band', 'Ukm_band.jpg', '<div>UKM BAND Telkom University</div><div>Mempersembahkan</div><div>GALA ABHINAYA</div><div>\"Satukan Budaya dengan Irama\"</div><div>Dibintangi oleh :</div><div>- ALEXA</div><div>- Barry Likumahuwa \"Feel Good Collective\"</div><div>- \"Arumba\" by Saung Angklung Udjo</div><div>Penampilan Tradisional oleh :</div><div>- UKM Permala (Lampung)</div><div>- UKM KBMS (Sulawesi)</div><div>- UKM Bali Widyacana Murti</div><div>Penampilan Band oleh :</div><div>- SEREVINA &amp; friends</div><div>- Green Tea Latte</div><div>dan kunjungi juga Culinary Festival!!</div><div>Dilaksanakan pada :</div><div>April 26th, 2015</div><div>di Lapangan Parkir Telkom Convention Hall</div><div>Jl.Telekomunkasi no.1, Dayeuhkolot, Bandung</div><div>Mulai Pukul :</div><div>15.00 WIB</div><div>Tiket :</div><div>Presale 1 : IDR 28.000 (21 Mar - 5 Apr 2015)</div><div>Presale 2 : IDR 38.000 (6 Apr - 16 Apr 2015)</div><div>OTS : IDR 50.000</div><div>Contact Person :</div><div>- Untuk Tiket :</div><div>Muhe : 0853 5290 9966</div><div>Eddy : 0857 3970 6333&nbsp;</div><div>- Untuk Event :</div><div>Arvel : 0813 1850 6384</div><div>Ilham : 0812 90 575 909</div><div>Stand Tiket :</div><div>Kantin TES (Business Center)</div><div>Senin - Jumat, 12.00 - 16.00 WIB</div><div>Nikmatilah atmosfir dari kebudayaan tradisonal Indonesia yang dipadukan oleh modernisasi, hanya di GALA ABHINAYA!</div><div>Twitter &amp; Instagram :</div><div>@UKMBANDUNITEL</div>', NULL, 1, 'Belum', 0);
 
 -- --------------------------------------------------------
 
@@ -586,7 +587,7 @@ ALTER TABLE `data_pengurus`
 -- AUTO_INCREMENT for table `data_pesan_tiket`
 --
 ALTER TABLE `data_pesan_tiket`
-  MODIFY `kd_booking` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `kd_booking` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `event`
 --

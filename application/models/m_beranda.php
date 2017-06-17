@@ -58,7 +58,7 @@
 			$this->db->select('*');
 			$this->db->from('event');
 			$this->db->where('status_approval','1');
-			$this->db->order_by('tanggal','ASC');
+			$this->db->order_by('status_terlaksana','ASC');
 			return $this->db->get()->result();
 		}
 

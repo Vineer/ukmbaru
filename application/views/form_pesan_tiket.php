@@ -4,6 +4,7 @@
 
 <!-- Mirrored from themes.webavenue.com.au/enstruct/html/22-enstruct-checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Apr 2017 14:07:49 GMT -->
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -89,47 +90,37 @@
                                                         <div class="form-group">
                                                            <b>Nama</b>
                                                            <input type="hidden" name="id_event" value="<?php echo $this->uri->segment(3); ?>">
-                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama">
+                                                           <?php $usrnm = $this->session->userdata('username');
+                                                                 $nmfll = $this->db->query("select m.nama, m.nim FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
+                                                            <?php foreach($nmfll->result_array() as $row) {?>
+                                                                <input type="text" name="nama" value="<?php echo $row['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>NIM</b>
-                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim">
+                                                            <input type="text" name="nim" value="<?php echo $row['nim'];?>">
+                                                            <?php }?>
                                                             <?php echo form_error('nim'); ?>
                                                         </div>
                                                         <div class="form-group">
-                                                           <b>Fakultas</b>
-                                                           <select name="fakultas">
-                                                               <option>FIT</option>
-                                                               <option>FTE</option>
+                                                           <b>Acara</b>
+                                                           <select name="acara" id="acara">
+                                                            <?php foreach($acara->result_array() as $row) {?>
+                                                                <option name="acara" id="acara" value="<?php echo $row['nama_event'];?>">
+                                                                <?php echo $row['nama_event']?> -- 
+                                                                Rp. <?php echo number_format($row['harga_tiket']) ?>
+                                                                </option>
+                                                            <?php }?>
                                                            </select>
-                                                           <?php echo form_error('fakultas'); ?>
+                                                           <?php echo form_error('acara'); ?>
                                                         </div>
-                                                        
-                                                        <div class="form-group">
-                                                           <b>Jurusan</b>
-                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan">
-                                                            <?php echo form_error('jurusan'); ?>
-                                                        </div> 
                                                         <div class="form-group">
                                                            <b>Jumlah Tiket</b>
-                                                            <input type="text" placeholder="Jumlah Tiket *" name="jml_tiket">
+                                                            <input type="text" placeholder="Jumlah Tiket *" id="jml_tiket" name="jml_tiket">
                                                             <?php echo form_error('jml_tiket'); ?>
-                                                        </div>  
-                                                        <div class="form-group">
-                                                           <b>Nomor Telepon/Line</b>
-                                                            <input type="text" placeholder="Nomor Telepon *" name="no_telp">
-                                                            <?php echo form_error('no_telp'); ?>
-                                                        </div>  
-                                                        
-                                                        <div class="form-group">
-                                                           <b>email</b>
-                                                            <input type="text" placeholder="example@email.com *" name="email">
-                                                            <?php echo form_error('email'); ?>
-                                                        </div> 
+                                                        </div>
                                                         <!-- order note -->
                                                     </div>
-
                                                 </div>
                                                 <div class="form-group" style="margin-top:50px;">
                                                     <input type="submit" value="Submit"class="btn bg-yellow txt-cap" style="color:white;">

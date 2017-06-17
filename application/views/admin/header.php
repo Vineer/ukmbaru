@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 		<title>InterUKM - Web</title>
 
 		<!-- BEGIN META -->
@@ -26,6 +27,7 @@
 		<script type="text/javascript" src="<?php echo base_url()?>assets/superadmin_assets/js/libs/utils/html5shiv.js?1403934957"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>assets/superadmin_assets/js/libs/utils/respond.min.js?1403934956"></script>
 		<![endif]-->
+
 		<script type="text/javascript">
 			function konfirmhapus(e) {
 			    var answer = confirm("Hapus Data?")
