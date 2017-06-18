@@ -21,7 +21,8 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Kode Feedback</th>
+												<!-- <th>Kode Feedback</th> -->
+												<th>Nama Event</th>
 												<th>Nama</th>
 												<th>Email</th>
 												<th>Kritik</th>
@@ -35,7 +36,8 @@
 											?>
 											<tr class="gradeX">
 												<td><?php echo $i?></td>
-												<td><?php echo $a->id_feedback?></td>
+												<!-- <td><?php echo $a->id_feedback?></td> -->
+												<td><?php echo $a->nama_event ?></td>
 												<td><?php echo $a->nama ?></td>
 												<td><?php echo $a->email ?></td>
 												<td><?php echo $a->kritik ?></td>

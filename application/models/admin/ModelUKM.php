@@ -99,7 +99,7 @@ class ModelUKM extends CI_Model {
 	}
 
 	function AmbilDaftarFeedbackId($id) {
-		$data = $this->db->query("select a.id_feedback, a.nama, a.email, a.kritik, a.saran from feedback a join event b on a.nim = b.id_event where b.id_ukm = $id");
+		$data = $this->db->query("select a.id_feedback, a.nama_event, a.nama, a.email, a.kritik, a.saran from feedback a join event b on a.nim = b.id_event where b.id_ukm = $id");
 		return $data;
 	}
 
