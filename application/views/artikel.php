@@ -103,7 +103,7 @@
                                 </div>
                                 <!--post content-->
 
-                                <a href="<?php echo base_url().'beranda/artikel_detail/'.$art->kd_artikel ?>" class="btn btn-outline-primary">Continue reading <i class="fa fa-long-arrow-right"></i></a>
+                                <a href="<?php echo base_url().'beranda/artikel_detail/'.$art->kd_artikel ?>" class="btn btn-outline-primary">Baca Selengkapnya <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                                                      <?php
                         } ?>

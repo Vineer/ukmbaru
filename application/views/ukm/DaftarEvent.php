@@ -11,7 +11,7 @@
 			<div id="content">
 				<section class="style-default-bright">
 					<div class="section-header">
-						<h2 class="text-primary">Daftar Pengajuan Event</h2>
+						<h2 class="text-primary">Daftar Pengajuan Acara</h2>
 					</div>
 					<div class="section-body">
 						<div class="row">
@@ -21,8 +21,8 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Kode Event</th>
-												<th>Nama Event</th>
+												<th>Kode Acara</th>
+												<th>Nama Acara</th>
 												<th>Tanggal</th>
 												<th>Tempat</th>
 												<th>Waktu</th>
@@ -53,7 +53,7 @@
 												?>
 												<td><center>
 													<a href="<?php echo base_url()?>superadmin/Superadmin/EditEvent/<?php echo $a->id_event?>">
-														<button type="button" class="btn ink-reaction btn-raised btn-warning">Approve</button>
+														<button type="button" class="btn ink-reaction btn-raised btn-warning">Setujui</button>
 													</a>
 													</center>
 													</td>
@@ -62,37 +62,34 @@
 													?>
 													<td><center>
 													
-														<button type="button" class="btn ink-reaction btn-raised btn-primary">Approved</button>
+														<button type="button" class="btn ink-reaction btn-raised btn-primary">Telah disetujui</button>
 													
 													</center>
 													</td>
 
 													<?php
 													} ?>
-												<?php if ($a->status_terlaksana == 'Belum') {
+												<?php
+													$today = date("Y-m-d");
+													$date = $a->tanggal;
+													if ($date < $today) {
 												?>
 												<td><center>
-													<a href="<?php echo base_url()?>superadmin/Superadmin/EditEvent/<?php echo $a->id_event?>">
-														<button type="button" class="btn ink-reaction btn-raised btn-info">
-															<?php echo $a->status_terlaksana?>
-														</button>
-													</a>
+													<button type="button" class="btn ink-reaction btn-raised btn-info">
+														Sudah
+													</button>
 													</center>
-													</td>
+												</td>
 												<?php
 												}else{
 													?>
 													<td><center>
-													
 														<button type="button" class="btn ink-reaction btn-raised btn-success">
-															<?php echo $a->status_terlaksana?>
+															Belum
 														</button>
-													
 													</center>
 													</td>
-
-													<?php
-													} ?>
+												<?php } ?>
 												<td>
 													<center>	
 													<button type="submit" class="btn ink-reaction btn-raised btn-danger"><a href="<?php echo base_url().'UKM/delete_event/'.$a->id_event;?>" onClick='konfirmhapus(event)'>Hapus</a></button>

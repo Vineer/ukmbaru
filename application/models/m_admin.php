@@ -97,6 +97,17 @@ class M_admin extends CI_Model {
 		return $data;
 	}
 
+	function checkNmUkm($nama_ukm){
+       $query = $this->db->query('select * from ukm where nama_ukm = "'.$nama_ukm.'"');
+       $hasil = 0;
+       if ($query->num_rows() == 1) {
+       	   
+       	   return $hasil = 1;
+       }
+
+       return $hasil; 
+	}
+
 	function checkUsername($username){
        $query = $this->db->query('select * from akun where username = "'.$username.'"');
        $hasil = 0;

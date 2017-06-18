@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>|| &nbsp; Enstruct</title>
+    <title>|| &nbsp; InterUKM</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -131,11 +131,11 @@
                                                             <?php echo form_error('motivasi'); ?>
                                                         </div> 
                                                         <div class="form-group">
-                                                           <b>Upload CV</b>
+                                                           <b>Unggah CV</b>
                                                             <input type="file" class="form-control" name="cv">
                                                         </div>
                                                          <div class="form-group">
-                                                           <b>Upload Foto</b>
+                                                           <b>Unggah Foto</b>
                                                             <input type="file" class="form-control" name="foto-profil" ccept="image/*">
                                                         </div 
                                                         <!-- order note -->

@@ -16,6 +16,7 @@
 					<div class="section-body">
 						<div class="row">
 							<a href="<?php echo base_url()?>superadmin/Superadmin/Tambah_mhs"><button type="button" class="btn ink-reaction btn-raised btn-primary col-sm-offset-0">Tambah Data Mahasiswa</button></a>
+							<a href="<?php echo base_url()?>superadmin/Superadmin/ImportData"><button type="button" class="btn ink-reaction btn-raised btn-primary col-sm-offset-0">Import Data Mahasiswa</button></a>
 							<br><br>
 							<div class="col-lg-12">
 								<div class="table-responsive">

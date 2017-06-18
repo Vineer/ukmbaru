@@ -168,9 +168,15 @@ function resetRating(id) {
 </table>
                     <?php endforeach; ?>
                         <div class="entry-footer">
-                        <?php if ($value->status_terlaksana == 'Sudah') { ?>
+
+                        <?php
+                                $today = date("Y-m-d");
+                                $date = $value->tanggal;
+                                if ($date < $today) {
+                        ?>
                             <div class="tag-links mb-40">
-                                <a href="<?= base_url().'event/form_feedback/'.$value->id_event ?>">Feedback</a>
+                                <a href="<?= base_url().'event/form_feedback/'.$value->id_event ?>" >
+                                Feedback</a>
                             </div>
                             <?php
                             }else{

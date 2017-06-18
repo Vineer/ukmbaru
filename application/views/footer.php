@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Ubah Profile</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Ubah Profil</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -40,7 +40,7 @@
               <input type="text" class="form-control" value="<?= $mahasiswa['no_telp']?>" name="no_telp" id="name3">
             </div>
             <div class="form-group">
-              <button type="submit" class="btn-default btn">Ubah Profile</button>
+              <button type="submit" class="btn-default btn">Ubah Profil</button>
             </div>
         </form> <!-- end Form -->
       </div>

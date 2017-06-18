@@ -99,7 +99,7 @@ function resetRating(id) {
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="main-title la page-title wow fadeInUp">
-                            <h2>detail artikel</h2>
+                            <h2>Artikel Selengkapnya</h2>
                         </div>
                     </div>
                 </div>
@@ -123,13 +123,13 @@ function resetRating(id) {
 
                             <div class="post-info">
                                 <span class="post-author">
-                                       <i class="fa fa-user"></i> Posted by: <a href="#"><?php echo $art->penerbit; ?></a>
+                                       <i class="fa fa-user"></i> Dipublikasikan: <a href="#"><?php echo $art->penerbit; ?></a>
                                     </span>
                                 <span class="post-date">
-                                       <i class="fa fa-calendar"></i> Date: <a href="#"><?php echo $art->tgl_terbit; ?></a>
+                                       <i class="fa fa-calendar"></i> Tanggal: <a href="#"><?php echo $art->tgl_terbit; ?></a>
                                     </span>
                                 <span class="post-commetns">
-                                       <i class="fa fa-comments"></i> Comments: <a href="#"><?= $jmlkomen->jmlkomen ?> comments</a>
+                                       <i class="fa fa-comments"></i> Komentar: <a href="#"><?= $jmlkomen->jmlkomen ?> comments</a>
                                     </span>
                             </div>
                             <!--post info-->
@@ -172,7 +172,7 @@ function resetRating(id) {
 
                         <div class="comment-area mb-27">
                             <div class="title">
-                                <h3 class="m-0">Comments</h3>
+                                <h3 class="m-0">Komentar</h3>
                                 <span><?= $jmlkomen->jmlkomen ?> comments</span>
                             </div>
                             <ul class="comment-list">
@@ -209,21 +209,21 @@ function resetRating(id) {
                             <!--comment list-->
 
                             <div class="comment-respond">
-                                <h4 class="title">Leave a reply</h4>
+                                <h4 class="title">Silahkan Masukkan Komentar Anda</h4>
                                 <form action="<?= base_url().'beranda/komentar/'.$idevent ?>" method="post">
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <textarea placeholder="Your comment here" name="isi" required></textarea>
+                                            <textarea placeholder="Masukkan komentar disini" name="isi" required></textarea>
                                         </div>
                                         <!--text area-->
 
                                         <div class="form-group col-sm-4">
-                                            <input type="text" placeholder="Your Full Name" name="nama" required>
+                                            <input type="text" placeholder="Nama Anda" name="nama" required>
                                         </div>
                                         <!--name-->
 
                                         <div class="form-group col-sm-4">
-                                            <input type="email" placeholder="Your Email Address" name="email" required>
+                                            <input type="email" placeholder="Alamat Email Anda" name="email" required>
                                         </div>
                                         <!--name-->
 
@@ -233,7 +233,7 @@ function resetRating(id) {
                                         <!--name-->
 
                                         <div class="form-group col-sm-12">
-                                            <button type="submit" class="btn bg-yellow">Post Comment</button>
+                                            <button type="submit" class="btn bg-yellow">Kirim Komentar</button>
                                         </div>
                                     </div>
                                 </form>

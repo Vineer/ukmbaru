@@ -24,11 +24,10 @@
 												<th>Kode Booking</th>
 												<th>Nama Mahasiswa</th>
 												<th>NIM</th>
-												<th>Fakultas</th>
-												<th>Jurusan</th>
 												<th>Jumlah Tiket</th>
 												<th>No Telepon</th>
 												<th>Email</th>
+												<th>Acara</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -42,11 +41,10 @@
 												<td><?php echo $a->kd_booking ?></td>
 												<td><?php echo $a->nama_mhs ?></td>
 												<td><?php echo $a->nim ?></td>
-												<td><?php echo $a->fakultas ?></td>
-												<td><?php echo $a->jurusan ?></td>
 												<td><?php echo $a->jml_tiket ?></td>
 												<td><?php echo $a->no_telp ?></td>
 												<td><?php echo $a->email ?></td>
+												<td><?php echo $a->acara ?></td>
 												<td>
 												<?php
 												if ($a->status == 'Lunas') {

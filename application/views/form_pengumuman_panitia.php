@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>|| &nbsp; Enstruct</title>
+    <title>|| &nbsp; InterUKM</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="main-title text-center wow fadeInUp">
-                            <h2>Pengumuman Panitia Event</h2>
+                            <h2>Pengumuman Panitia Acara</h2>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                     <div class="col2-set" id="customer_details">
                                         <div class="col-1">
                                             <div class="woocommerce-billing-fields">
-                                                <h4 class="title">Hasil Seleksi Panitia Event</h4>
+                                                <h4 class="title">Hasil Seleksi Panitia Acara</h4>
                                                 <div class="row">
                                                     <div class="col-md-8 col-sm-8">
                                                         <div class="form-group">

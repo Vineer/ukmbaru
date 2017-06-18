@@ -25,10 +25,22 @@ class ModelUKM extends CI_Model {
 		$data = $this->db->query("select * from ukm");
 		return $data;
 	}
+
+	function AmbilDaftarProfilId($id) {
+		$data = $this->db->query("select * from ukm where id_ukm = $id");
+		return $data;
+	}
+
 	function AmbilDaftarArtikel() {
 		$data = $this->db->query("select * from artikel");
 		return $data;
 	}
+
+	function AmbilDaftarUKMById($id) {
+		$data = $this->db->query("select * from artikel where id_ukm = $id order by kd_artikel desc");
+		return $data;
+	}
+
 	function AmbilDaftarProposal() {
 		$data = $this->db->query("select * from proposal");
 		return $data;
@@ -41,6 +53,12 @@ class ModelUKM extends CI_Model {
 		$data = $this->db->query("select * from event");
 		return $data;
 	}
+
+	function AmbliDaftarEventById($id) {
+		$data = $this->db->query("select * from event where id_ukm = $id order by id_event desc");
+		return $data;
+	}
+
 	function AmbilDaftarPengumuman() {
 		$data = $this->db->query("select * from pengumuman");
 		return $data;
@@ -49,16 +67,39 @@ class ModelUKM extends CI_Model {
 		$data = $this->db->query("select * from data_pesan_tiket");
 		return $data;
 	}
+
+	function AmbilDaftarTiketId($id) {
+		$data = $this->db->query("select a.kd_booking, a.nama_mhs, a.nim, a.acara, a.jml_tiket, a.acara, a.no_telp, a.email, a.status from data_pesan_tiket a join event b on a.id_event = b.id_event where b.id_ukm = $id");
+		return $data;
+	}
+
 	function AmbilDaftarKomentar() {
 		$data = $this->db->query("select * from komentar");
 		return $data;
 	}
+
+	function AmbilDaftarKomentarId($id) {
+		$data = $this->db->query("select a.id_komentar, a.jenis, a.id_artikel, a.nama_komentar, a.email, a.website, a.isi_komentar, a.waktu, b.judul from komentar a join artikel b on a.id_artikel = b.kd_artikel where b.id_ukm = $id");
+		return $data;
+	}
+
 	function AmbilDaftarPanitia() {
 		$data = $this->db->query("select * from data_panitia");
 		return $data;
 	}
+
+	function AmbilDaftarPanitiaId($id) {
+		$data = $this->db->query("select a.kd_panitia, a.nim_mhs, a.nama_mhs, a.ukm_pilihan, a.fakultas, a.jurusan, a.divisi, a.no_hp, a.email, a.motivasi, a.status from data_panitia a join event b on a.ukm_pilihan = b.nama_event where b.id_ukm = $id");
+		return $data;
+	}
+
 	function AmbilDaftarFeedback() {
 		$data = $this->db->query("select * from feedback");
+		return $data;
+	}
+
+	function AmbilDaftarFeedbackId($id) {
+		$data = $this->db->query("select a.id_feedback, a.nama, a.email, a.kritik, a.saran from feedback a join event b on a.nim = b.id_event where b.id_ukm = $id");
 		return $data;
 	}
 
@@ -93,6 +134,11 @@ class ModelUKM extends CI_Model {
 	}
 	function notifEvent() {
 		$data = $this->db->query("select * from data_pesan_tiket where status != 'Lunas'");
+		return $data;
+	}
+
+	function ambilNamaUKM($id) {
+		$data = $this->db->query("select * from ukm where id_ukm = $id");
 		return $data;
 	}
 }

@@ -21,6 +21,7 @@
 		<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/superadmin_assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990" />
 		<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/superadmin_assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990" />
 		<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/superadmin_assets/css/theme-default/libs/summernote/summernote.css?1425218701" />
+		<link rel="stylesheet" href="<?=base_url()?>assets/superadmin_assets/css/clockpicker/clockpicker.css">
 		<!-- END STYLESHEETS -->
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>

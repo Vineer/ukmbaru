@@ -14,7 +14,9 @@ class UKM extends CI_Controller {
 
 	function index() {
 		// $id = $this->session->userdata('id_ukm');
-		$data['artikel']		= $this->ModelUKM->AmbilDaftarArtikel()->result();
+		//$data['artikel']		= $this->ModelUKM->AmbilDaftarArtikel()->result();
+		$id 					= $this->session->userdata('id_ukm');
+		$data['artikel']		= $this->ModelUKM->AmbilDaftarUKMById($id)->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$this->load->view('admin/header',$data);
@@ -24,7 +26,9 @@ class UKM extends CI_Controller {
 
 	function Artikel() {
 		// $id = $this->session->userdata('id_ukm');
-		$data['artikel']		= $this->ModelUKM->AmbilDaftarArtikel()->result();
+		//$data['artikel']		= $this->ModelUKM->AmbilDaftarArtikel()->result();
+		$id 					= $this->session->userdata('id_ukm');
+		$data['artikel']		= $this->ModelUKM->AmbilDaftarUKMById($id)->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$this->load->view('admin/header',$data);
@@ -46,19 +50,26 @@ class UKM extends CI_Controller {
 		$this->load->view('admin/DaftarLpj', $data);
 	}
 	function Event(){
-		// $id = $this->session->userdata('id_ukm');
-		$data['event']		= $this->ModelUKM->AmbilDaftarEvent()->result();
+		$id = $this->session->userdata('id_ukm');
+		//$data['event']		= $this->ModelUKM->AmbilDaftarEvent()->result();
+		$data['event']			= $this->ModelUKM->AmbliDaftarEventById($id)->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$this->load->view('admin/header',$data);
 		$this->load->view('admin/DaftarEvent',$data);
 	}
 
-	function TambahArtikel($id) {
+	function TambahArtikel() {
+		$id 			  = $this->session->userdata('id_ukm');
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
+		$data['penerbit'] = $this->ModelUKM->ambilNamaUKM($id)->row_array();
 		$this->load->view('admin/header',$data);
 		$this->load->view('admin/TambahArtikel',$data);
+	}
+
+	function cekSession() {
+		echo $this->session->userdata('id_ukm');
 	}
 
 	function SimpanArtikel() {
@@ -79,12 +90,13 @@ class UKM extends CI_Controller {
 			$konten					= nl2br(htmlspecialchars_decode($this->input->post('summernote'), ENT_HTML5));
 			$tgl_terbit				= date('Y-m-d');
 			$konten					= array(
-											'kd_artikel'	=> $kd_artikel,
+											/*'kd_artikel'	=> $kd_artikel,*/
 											'penerbit'		=> $penerbit,
 											'kategori'		=> $kategori,
 											'tgl_terbit'	=> $tgl_terbit,
 											'judul'			=> $judul,			
-											'konten'		=> $konten
+											'konten'		=> $konten,
+											'id_ukm'		=> $this->session->userdata('id_ukm')
 											
 							  	  	  );
 			$this->ModelUKM->insert('artikel', $konten);
@@ -365,8 +377,10 @@ class UKM extends CI_Controller {
 
 	}
 	function TambahEvent() {
+		$id 				= $this->session->userdata('id_ukm');
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
+		$data['penerbit']	= $this->ModelUKM->ambilNamaUKM($id)->row_array();
 		$this->load->view('admin/header',$data);
 		$this->load->view('admin/TambahEvent');
 	}
@@ -375,8 +389,11 @@ class UKM extends CI_Controller {
 		$this->form_validation->set_rules('nama_event', 'Nama Event', 'trim|required');
 		$this->form_validation->set_rules('tanggal', 'Tanggal Event', 'trim|required');
         $this->form_validation->set_rules('tempat', 'Tempat Event', 'trim|required');
-        $this->form_validation->set_rules('waktu', 'Waktu Event', 'trim|required');
+        //$this->form_validation->set_rules('waktu', 'Waktu Event', 'trim|required');
+        $this->form_validation->set_rules('waktu', 'Waktu Mulai', 'trim|required');
+        $this->form_validation->set_rules('selesai', 'Waktu Selesai', 'trim|required');
         $this->form_validation->set_rules('penyelenggara', 'penyelenggara', 'trim|required');
+         $this->form_validation->set_rules('harga_tiket', 'harga_tiket', 'trim|required');
         $this->form_validation->set_rules('konten', 'Konten', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
         	$data['notif'] = $this->ModelUKM->notifEvent()->result();
@@ -388,7 +405,9 @@ class UKM extends CI_Controller {
 			$tanggal				= $this->input->post('tanggal');
 			$tempat					= $this->input->post('tempat');
 			$waktu					= $this->input->post('waktu');
+			$selesai 				= $this->input->post('selesai');
 			$penyelenggara			= $this->input->post('penyelenggara');
+			$harga_tiket			= $this->input->post('harga_tiket');
 			$konten					= $this->input->post('konten');
 			if (isset($_FILES['event'])) {
 				$config['upload_path']	= './assets/event/';
@@ -404,14 +423,16 @@ class UKM extends CI_Controller {
 											'tanggal'		=> $tanggal,
 											'tempat'		=> $tempat,
 											'waktu'			=> $waktu,
+											'selesai'		=> $selesai,
 											'penyelenggara'	=> $penyelenggara,
+											'harga_tiket'	=> $harga_tiket,
 											'konten'		=> $konten,
-											'poster'		=> $namafile
+											'poster'		=> $namafile,
+											'id_ukm'		=> $this->session->userdata('id_ukm')
 									  );
 
 	            $this->ModelUKM->insert('event',$isi);
 	            redirect('admin/UKM/Event','refresh');
-
 		        } else {
 		        	$error = $this->upload->display_errors();
 		        	print_r($error);
@@ -444,7 +465,9 @@ class UKM extends CI_Controller {
 		$this->form_validation->set_rules('tanggal', 'Tanggal Event', 'trim|required');
         $this->form_validation->set_rules('tempat', 'Tempat Event', 'trim|required');
         $this->form_validation->set_rules('waktu', 'Waktu Event', 'trim|required');
+        $this->form_validation->set_rules('selesai', 'Waktu Event', 'trim|required');
         $this->form_validation->set_rules('penyelenggara', 'penyelenggara', 'trim|required');
+        $this->form_validation->set_rules('harga_tiket','harga_tiket', 'trim|required');
         $this->form_validation->set_rules('konten', 'Konten', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
         	$data['query'] = $this->ModelUKM->LihatEvent($id)->row();
@@ -458,7 +481,9 @@ class UKM extends CI_Controller {
 			$tanggal				= $this->input->post('tanggal');
 			$tempat					= $this->input->post('tempat');
 			$waktu					= $this->input->post('waktu');
+			$selesai				= $this->input->post('selesai');
 			$penyelenggara			= $this->input->post('penyelenggara');
+			$harga_tiket			= $this->input->post('harga_tiket');
 			$konten					= $this->input->post('konten');
 			if (isset($_FILES['event'])) {
 				$config['upload_path']	= './assets/event/';
@@ -474,14 +499,15 @@ class UKM extends CI_Controller {
 											'tanggal'		=> $tanggal,
 											'tempat'		=> $tempat,
 											'waktu'			=> $waktu,
+											'selesai'		=> $selesai,
 											'penyelenggara'	=> $penyelenggara,
+											'harga_tiket'	=> $harga_tiket,
 											'konten'		=> $konten,
 											'poster'		=> $namafile
 									  );
 
 	            $this->ModelUKM->update('event', $isi, 'id_event', $id_event);
 	             redirect('admin/UKM/Event','refresh');
-
 		        } else {
 		        	$error = $this->upload->display_errors();
 		        	print_r($error);
@@ -511,7 +537,9 @@ class UKM extends CI_Controller {
 		$this->load->view('admin/EditProfil',$data);
 	}
 	function EditProfil(){
-		$data['ukm']		= $this->ModelUKM->AmbilDaftarProfil()->result();
+		//$data['ukm']		= $this->ModelUKM->AmbilDaftarProfil()->result();
+		$id 				= $this->session->userdata('id_ukm');
+		$data['ukm']		= $this->ModelUKM->AmbilDaftarProfilId($id)->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$this->load->view('admin/header',$data);
@@ -669,7 +697,9 @@ class UKM extends CI_Controller {
 		}
 	}
 	function EventTicket(){
-		$data['tiket']		= $this->ModelUKM->AmbilDaftarTiket()->result();
+		//$data['tiket']		= $this->ModelUKM->AmbilDaftarTiket()->result();
+		$id 					= $this->session->userdata('id_ukm');
+		$data['tiket']			= $this->ModelUKM->AmbilDaftarTiketId($id)->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$this->load->view('admin/header',$data);
@@ -689,7 +719,9 @@ class UKM extends CI_Controller {
 		redirect('admin/UKM/EventTicket');
 	}
 	function PanitiaEvent(){
-		$data['panitia']		= $this->ModelUKM->AmbilDaftarPanitia()->result();
+		//$data['panitia']		= $this->ModelUKM->AmbilDaftarPanitia()->result();
+		$id 				= $this->session->userdata('id_ukm');
+		$data['panitia']		= $this->ModelUKM->AmbilDaftarPanitiaId($id)->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$this->load->view('admin/header',$data);
@@ -710,7 +742,8 @@ class UKM extends CI_Controller {
 	}
 	function Komentar(){
 		$id = $this->session->userdata('id_ukm');
-		$data['komentar']		= $this->ModelUKM->AmbilDaftarKomentar($id)->result();
+		//$data['komentar']		= $this->ModelUKM->AmbilDaftarKomentar($id)->result();
+		$data['komentar']		= $this->ModelUKM->AmbilDaftarKomentarId($id)->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$this->load->view('admin/header',$data);
@@ -721,7 +754,9 @@ class UKM extends CI_Controller {
 		redirect('admin/UKM/Komentar');
 	}
 	function DaftarFeedback(){
-		$data['feedback']	= $this->ModelUKM->AmbilDaftarFeedback()->result();
+		//$data['feedback']	= $this->ModelUKM->AmbilDaftarFeedback()->result();
+		$id 				= $this->session->userdata('id_ukm');
+		$data['feedback'] 	= $this->ModelUKM->AmbilDaftarFeedbackId($id)->result();
 		$data['jmlnotif'] = $this->ModelUKM->jmlnotifEvent()->result();
 		$data['notif'] = $this->ModelUKM->notifEvent()->result();
 		$this->load->view('admin/header',$data);

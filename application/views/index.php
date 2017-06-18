@@ -191,7 +191,9 @@
                                             <span class="post-location">
                                                 <i class="fa fa-clock-o"></i> <?php echo $ue->waktu; ?>
                                             </span>
-
+                                            <span class="post-location">
+                                                <i class="fa fa-clock-o"></i> <?php echo $ue->selesai; ?>
+                                            </span>
                                             <span class="post-location">
                                                 <i class="fa fa-map-marker"></i> <?php echo $ue->tempat; ?>
                                             </span>
@@ -201,7 +203,7 @@
                                         <p>
                                             <?php echo $ue->konten; ?>
                                         </p>
-                                        <a href="<?php echo base_url().'event/single_event/'.$ue->id_event; ?>" class="btn btn-lg bg-yellow">Events Detail</a>
+                                        <a href="<?php echo base_url().'event/single_event/'.$ue->id_event; ?>" class="btn btn-lg bg-yellow">Selengkapnya</a>
                                     </div>
                                     <!--content-->
                                 </li>
@@ -224,10 +226,10 @@
                 <div class="row  ">
                     <div class="col-md-12 col-sm-12">
                         <div class="main-title title-content text-center">
-                            <h2 class="wow fadeInUp">Event lainnya</h2>
+                            <h2 class="wow fadeInUp">Acara lainnya</h2>
 
                             <p>
-                                Event-event lainnya yang akan diselenggarakan di Universitas Telkom
+                                Acara-acara lainnya yang akan diselenggarakan di Universitas Telkom
                             </p>
                         </div>
                     </div>
@@ -260,13 +262,17 @@
                                     </p>
                                 </div>
                                 </div>
-                                <?php if ($el->status_terlaksana == 'Belum') { ?>
+                                <?php 
+                                    $today = date("Y-m-d");
+                                    $date = $el->tanggal;
+                                    if ($date < $today) {
+                                ?>
+                                    <a class="btn cart-btn rounded-0">Acara Sudah Lewat</a>
+                                <?php
+                                    }else{
+                                ?>
                                     <a href="<?php echo base_url().'beranda/pemesanan_tiket_beranda/'.$el->id_event; ?>" class="btn cart-btn rounded-0">
                                     <i><img src="<?php echo base_url() ?>assets/images/cart-icon.png" alt=""></i> Pesan tiket</a>
-                                <?php
-                                }else{
-                                ?>
-                                <a class="btn cart-btn rounded-0">Acara Sudah Lewat</a>
                                 <?php } ?>
                         </div>
                         </div>
@@ -321,7 +327,7 @@
                                     </p>
                                 </div>
 
-                                <a href="#" class="readmore">Learn More</a>
+                                <a href="#" class="readmore">Baca Selengkapnya</a>
                             </div>
                         </div>
                         </div>

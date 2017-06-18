@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="main-title text-center wow fadeInUp">
-                            <h2>Pendaftaran Panitia Event UKM</h2>
+                            <h2>Pendaftaran Panitia Acara UKM</h2>
                         </div>
                     </div>
                 </div>
@@ -82,25 +82,37 @@
                                             <div class="woocommerce-billing-fields">
                                                 <h4 class="title">Formulir Pendaftaran</h4>
                                                 <div class="row">
-                                                    <div class="col-md-8 col-sm-8">
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Nama</b>
                                                             <input type="text" placeholder="Nama Mahasiswa *" name="nama">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>NIM</b>
                                                             <input type="text" placeholder="NIM Mahasiswa *" name="nim">
                                                             <?php echo form_error('nim'); ?>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
-                                                           <b>Pilih UKM</b>
-                                                           <select name="ukm">
-                                                               <option>UKM Bola</option>
-                                                               <option>UKM Bali</option>
+                                                            <b>Pilih Event</b>
+                                                            <select name="data_panitia">
+                                                            <option>Pilih Event</option>
+                                                            <?php
+                                                            foreach ($event as $e) {
+                                                            ?>
+                                                            <option><?=$e->nama_event?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                            </select>
-                                                           <?php echo form_error('ukm'); ?>
+                                                           <?php echo form_error('nama_event'); ?>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Fakultas</b>
                                                            <select name="fakultas">
@@ -109,57 +121,74 @@
                                                            </select>
                                                            <?php echo form_error('fakultas'); ?>
                                                         </div>
-                                                        
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Jurusan</b>
                                                             <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan">
                                                             <?php echo form_error('jurusan'); ?>
-                                                        </div> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Divisi</b>
                                                             <div class="col-md-8">
-                                                                <div class="i-checks">
-
-                                                                    <input type="checkbox" name="divisi" value="acara"> <i></i> Acara &nbsp&nbsp&nbsp
-                                                                    <input type="checkbox" name="divisi" value="logistik"> <i></i> Logistik &nbsp&nbsp&nbsp
-                                                                    <input type="checkbox" name="divisi" value="dokumentasi"> <i></i> Publikasi & Dokumentasi &nbsp&nbsp&nbsp
-                                                                    <input type="checkbox" name="divisi" value="keamanan"> <i></i> Keamanan &nbsp&nbsp&nbsp
-                                                                    <input type="checkbox" name="divisi" value="konsumsi"> <i></i> Konsumsi &nbsp&nbsp&nbsp
-                                                                    <input type="checkbox" name="divisi" value="sponsorship"> <i></i> Sponsorship &nbsp&nbsp&nbsp
-                                                                </div>
-                                                                <?php echo form_error('divisi'); ?>
+                                                                    <div class="i-checks">
+                                                                            <input type="checkbox" name="divisi" value="acara"> <i></i> Acara &nbsp&nbsp&nbsp
+                                                                            <input type="checkbox" name="divisi" value="logistik"> <i></i> Logistik &nbsp&nbsp&nbsp
+                                                                            <input type="checkbox" name="divisi" value="dokumentasi"> <i></i> Publikasi & Dokumentasi &nbsp&nbsp&nbsp
+                                                                            <input type="checkbox" name="divisi" value="keamanan"> <i></i> Keamanan &nbsp&nbsp&nbsp
+                                                                            <input type="checkbox" name="divisi" value="konsumsi"> <i></i> Konsumsi &nbsp&nbsp&nbsp
+                                                                            <input type="checkbox" name="divisi" value="sponsorship"> <i></i> Sponsorship &nbsp&nbsp&nbsp
+                                                                    </div>
+                                                                    <?php echo form_error('divisi'); ?>
                                                             </div>
-                                                        </div> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>No. HP</b>
                                                             <input type="text" placeholder="Nomor Handphone *" name="nohp">
                                                             <?php echo form_error('nohp'); ?>
-                                                        </div>  
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Email</b>
                                                             <input type="text" placeholder="example@email.com *" name="email">
                                                             <?php echo form_error('email'); ?>
-                                                        </div> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
-                                                           <b>Motivasi Masuk UKM</b>
+                                                           <b>Motivasi Masuk Kepanitiaan</b>
                                                             <textarea placeholder="Minimal 300 kata" name="motivasi"></textarea>
                                                             <?php echo form_error('motivasi'); ?>
-                                                        </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                           <b>Upload CV</b>
+                                                            <b>Unggah CV</b>
                                                             <input type="file" class="form-control" name="cv">
                                                         </div>
-                                                         <div class="form-group">
-                                                           <b>Upload Foto</b>
-                                                            <input type="file" class="form-control" name="foto-profil" ccept="image/*">
-                                                        </div 
-                                                        <!-- order note -->
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <b>Unggah Foto</b>
+                                                            <input type="file" class="form-control" name="foto-profil" ccept="image/*">
+                                                        </div>
+                                                    </div>
+                                                        <!-- order note -->
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input type="submit" value="Submit"class="btn bg-yellow txt-cap" style="color:white;">
+                                                    </div>
+                                                </div>
 
                                                 </div>
-                                                <div class="form-group" style="margin-top:50px;">
-                                                    <input type="submit" value="Submit"class="btn bg-yellow txt-cap" style="color:white;">
-                                                </div> 
                                             </div>
 
                                             <!--billing field-->

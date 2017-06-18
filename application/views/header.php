@@ -69,11 +69,11 @@
                             </ul>
                         </li>
 
-                        <li><a href="#">Event </a>
+                        <li><a href="#">Acara </a>
                             <ul class="sub-menu">
-                                <li><a href="<?php echo site_url('event/data_event'); ?>">Daftar Event</a></li>
-                                <li><a href="<?php echo site_url('beranda/join_panitia_event'); ?>">Pendaftaran Panitia Event</a></li>
-                                <li><a href="<?php echo site_url('beranda/hasil_pengumuman'); ?>">Pengumuman Panitia Event</a></li>
+                                <li><a href="<?php echo site_url('event/data_event'); ?>">Daftar Acara</a></li>
+                                <li><a href="<?php echo site_url('beranda/join_panitia_event'); ?>">Pendaftaran Panitia Acara</a></li>
+                                <li><a href="<?php echo site_url('beranda/hasil_pengumuman'); ?>">Pengumuman Panitia Acara</a></li>
                                 <li><a href="<?php echo site_url('beranda/pemesanan_tiket'); ?>">Pesan Tiket</a></li>
                                 <li><a href="<?php echo site_url('beranda/bukti_transfer'); ?>">Konfirmasi Bukti Transfer</a></li>
                             </ul>
@@ -89,8 +89,8 @@
                         </li>
                         <li> <a class="btn btn-lg bg-yellow" href="#" style="color:white;"><?php echo $this->session->userdata('username'); ?></a>
                             <ul class="sub-menu" >
-                                <li><a href="#" data-toggle="modal" data-target="#modalprofile">Profile</a></li>
-                                <li><a href="<?php echo site_url('login/logout'); ?>">Logout</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#modalprofile">Profil</a></li>
+                                <li><a href="<?php echo site_url('login/logout'); ?>">Keluar</a></li>
                             </ul>
                         </li>
                     <!--header cart-->

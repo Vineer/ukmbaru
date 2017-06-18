@@ -48,6 +48,7 @@
 <body>
     <?php
         include 'header.php';
+        $this->load->library('session');
     ?>
     <!--header ends-->
 
@@ -61,9 +62,9 @@
                 <div class="row  ">
                     <div class="col-md-12 col-sm-12">
                         <div class="main-title title-content text-center">
-                            <h2 class="wow fadeInUp">Feedback Event</h2>
+                            <h2 class="wow fadeInUp">Feedback Acara</h2>
                             <p>
-                                Silahkan kirim kritik dan saran untuk event ini!
+                                Silahkan kirim kritik dan saran untuk acara
                             </p>
                         </div>
                     </div>
@@ -75,6 +76,17 @@
                                 
                                 <div class="form-group col-sm-6">
                                     <input type="text" placeholder="Nama" name="nama">
+                                    <?php 
+                                    // $nmev = $this->db->select('nama_event')->from('event')->where('id_event',$id);
+                                    $q1 = $this->db->query(" select nama_event from event where id_event=$id");
+                                    foreach($q1->result_array() as $row) {
+                                        $nmev = $row['nama_event'];
+                                    }
+                                    // $query = $this->db->query($nmev);
+                                    // $nmev = $this->db->get();
+                                     ?>
+                                    <input type="hidden" name="id_event" value="<?=$id?>">
+                                    <input type="hidden" name="nama_event" value="<?=$nmev?>">
                                 </div>
                                 <!--email-->
 

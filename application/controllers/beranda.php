@@ -155,7 +155,10 @@ class beranda extends CI_Controller {
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
-		$this->load->view('form_panitia_event');
+		date_default_timezone_set('Asia/Jakarta');
+		$tanggal 			= date('Y-m-d');
+		$data['event']		= $this->db->query("select * from event where tanggal >= '$tanggal'")->result();
+		$this->load->view('form_panitia_event', $data);
 	}
 	public function hasil_pengumuman(){
 		if ($this->session->userdata('username') == null) {
@@ -176,11 +179,52 @@ class beranda extends CI_Controller {
 		$data['acara'] = $this->db->query("select * from event where status_terlaksana = 'Belum' ");
 		$this->load->view('form_pesan_tiket',$data);
 	}
+
+	function AmbilHargaTiket() {
+		$output 		= '';
+		$nama 			= $this->input->post('nama');
+		$ambil 			= $this->db->query("select harga_tiket from event where nama_event = '$nama'")->row_array();
+		if ($nama != '') {
+			$output    .= "<input type='text' value='".$ambil['harga_tiket']."' name='harga_tiket' id='harga_tiket' hidden>";
+		}
+		echo $output;
+	}
+
 	public function bukti_transfer(){
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
 		$this->load->view('form_bukti_transfer');
+	}
+
+	function tampilNamaPemesan() {
+		$output 				= '';
+		$id 					= $this->input->post('id');
+		$ambil 					= $this->db->query("select nama_mhs from data_pesan_tiket where kd_booking = $id")->row_array();
+		if ($id != '') {
+			$output 			.= "<input type='text' placeholder='Nama Mahasiswa *' name='nama' value='".$ambil['nama_mhs']."' readonly>";
+		}
+		echo $output;
+	}
+
+	function tampilNIMPemesan() {
+		$output 				= '';
+		$id 					= $this->input->post('id');
+		$ambil 					= $this->db->query("select nim from data_pesan_tiket where kd_booking = $id")->row_array();
+		if ($id != '') {
+			$output 			.= "<input type='text' placeholder='NIM Mahasiswa *' name='nim' value='".$ambil['nim']."' readonly>";
+		}
+		echo $output;
+	}
+
+	function tampilAcaraPemesan() {
+		$output 				= '';
+		$id 					= $this->input->post('id');
+		$ambil 					= $this->db->query("select acara from data_pesan_tiket where kd_booking = $id")->row_array();
+		if ($id != '') {
+			$output 			.= "<input type='text' placeholder='NIM Mahasiswa *' name='acara' value='".$ambil['acara']."' readonly>";
+		}
+		echo $output;
 	}
 
 	public function data_event(){

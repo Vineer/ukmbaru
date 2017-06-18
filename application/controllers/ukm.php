@@ -113,7 +113,7 @@
 	        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
 	        $this->form_validation->set_rules('fakultas', 'Fakultas', 'trim|required');
 	        $this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required');
-	        $this->form_validation->set_rules('divis', 'Divisi', 'trim|required');
+	        $this->form_validation->set_rules('divisi', 'Divisi', 'trim|required');
 	        $this->form_validation->set_rules('nohp', 'No Telepon', 'trim|required');
 	        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 	        $this->form_validation->set_rules('motivasi', 'Motivasi', 'trim|required');
@@ -122,7 +122,7 @@
 	        }else{
 				$nama = $this->input->post('nama');
 				$nim = $this->input->post('nim');
-				$ukm = $this->input->post('ukm');
+				$ukm = $this->input->post('data_panitia');
 				$fakultas = $this->input->post('fakultas');
 				$jurusan = $this->input->post('jurusan');
 				$divisi = $this->input->post('divisi');
@@ -177,11 +177,7 @@
 								'foto'=>$foto
 							);
 				$exec = $this->m_ukm->input_data($data,'data_panitia');
-				if ($exec) {
 					$this->session->set_flashdata('pesan', array('message' => 'Berhasil mendaftar menjadi panitia!', 'class' => 'success', 'title' => 'Sukses!'));
-				}else{
-					$this->session->set_flashdata('pesan', array('message' => 'Gagal mendaftar menjadi panitia!', 'class' => 'danger', 'title' => 'Gagal!'));
-				}
 				redirect('beranda/join_panitia_event');
 			}
 		}
@@ -199,16 +195,20 @@
 				$nim = $this->input->post('nim');
 				$acara = $this->input->post('acara');
 				$jml_tiket = $this->input->post('jml_tiket');
-				
+				$total_harga = preg_replace("/[^0-9]/","",$this->input->post('total_harga'));
+				$id_ukm = $this->db->query("select id_event from event where nama_event = '$acara'")->row_array();
 				$data = array(
 								'nama_mhs'=>$nama,
 								'nim'=>$nim,
 								'acara'=>$acara,
-								'jml_tiket'=>$jml_tiket
+								'jml_tiket'=>$jml_tiket,
+								'total_harga' => $total_harga,
+								'id_event'	=> $id_ukm['id_event']
 							);
 				$exec = $this->m_ukm->input_data($data,'data_pesan_tiket');
 				$cek = $this->db->order_by('kd_booking desc')->limit(1)->get('data_pesan_tiket')->row();
-				$this->session->set_flashdata('pesan', array('message' => 'Kode booking anda: '.$cek->kd_booking.' <br> Nama pemesan tiket: '.$cek->nama_mhs.' <br> Jumlah tiket yang dipesan: '.$cek->jml_tiket.' <br> Harap membayar sesuai dengan harga tiket <br> No Rek mandiri : 1121111399992 (a/n Amirudin) <br> Atau bisa membayar langsung dengan menghubungi id line: aahaw <br><br> NB: Harap capture pesan ini.', 'class' => 'success', 'title' => 'Berhasil memesan tiket! <br>'));
+				$ambildata = $this->db->query("select a.nama_cp, a.no_rekening, a.bank from ukm a join event b on a.id_ukm = b.id_ukm where b.nama_event = '$acara'")->row_array();
+				$this->session->set_flashdata('pesan', array('message' => 'Kode booking anda: '.$cek->kd_booking.' <br> Nama pemesan tiket: '.$cek->nama_mhs.' <br> Jumlah tiket yang dipesan: '.$cek->jml_tiket.' <br> Harap membayar sesuai dengan harga tiket <br> No Rek '.$ambildata['bank'].' : '.$ambildata['no_rekening'].' (a/n '.$ambildata['nama_cp'].') <br> Atau bisa membayar langsung dengan menghubungi id line: aahaw <br><br> NB: Harap capture pesan ini.', 'class' => 'success', 'title' => 'Berhasil memesan tiket! <br>'));
 				$this->load->view('form_pesan_tiket');
 			}
 		}

@@ -26,9 +26,12 @@
 												<th>Nama Event</th>
 												<th>Tanggal</th>
 												<th>Tempat</th>
-												<th>Waktu</th>
+												<th>Waktu Mulai</th>
+												<th>Waktu Selesai</th>
 												<th>Penyelengara</th>
+												<th>Harga Tiket</th>
 												<th>Foto/Poster</th>
+
 												<th>Konten</th>
 											</tr>
 										</thead>
@@ -44,12 +47,14 @@
 												<td><?php echo $a->tanggal?></td>
 												<td><?php echo $a->tempat?></td>
 												<td><?php echo $a->waktu?></td>
+												<td><?php echo $a->selesai?></td>
 												<td><?php echo $a->penyelenggara?></td>
+												<td><?php echo $a->harga_tiket?></td>
 												<td><img src="<?php echo base_url().'assets/event/'.$a->poster?>" width="48" height="48"></td>
 												<td><?php echo $a->konten?></td>
 												<td><center>
 													<a href="<?php echo base_url()?>admin/UKM/EditEvent/<?php echo $a->id_event?>">
-														<button type="button" class="btn ink-reaction btn-raised btn-warning">Edit</button>
+													<button type="button" class="btn ink-reaction btn-raised btn-warning">Edit</button>
 													</a></td>
 													<td>
 													<button type="submit" class="btn ink-reaction btn-raised btn-danger"><a href="<?php echo base_url().'admin/UKM/delete_event/'.$a->id_event;?>" onClick='konfirmhapus(event)'>Hapus</a></button>

@@ -77,6 +77,7 @@
 
 	public function form_feedback(){
 			$nim = $this->uri->segment(3);
+			$data['id']		= $this->uri->segment(3);
 			$data['event'] = $this->m_beranda->get_all_data('event');
 			$this->load->view('feedback',$data);
 	}
@@ -88,15 +89,20 @@
 		$email			= $this->input ->post('email');
 		$kritik			= $this->input ->post('kritik');
 		$saran			= $this->input ->post('saran');
+		$id_event 		= $this->input->post('id_event');
+		$nama_event 		= $this->input->post('nama_event');
 		$data 			= array(
 
-			'nama' 		=>$nama,
+			'nama' 			=>$nama,
 			'email' 		=>$email,
 			'kritik' 		=>$kritik,
 			'saran' 		=>$saran,
+			'nim'			=>$id_event,
+			'nama_event'	=>$nama_event
 		);	
 
 		if($this->m_event->insert('feedback',$data)){
+			alert ('Terimakasih Atas Kritik dan Saran yang Anda Berikan');
 			$this->session->set_flashdata('Terimakasih Atas Kritik dan Saran yang Anda Berikan');
 		}else{
 			$this->session->set_flashdata('Maaf, kritik dan saran Anda Gagal disimpan.');

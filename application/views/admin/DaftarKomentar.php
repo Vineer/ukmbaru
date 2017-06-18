@@ -27,6 +27,7 @@
 												<th>Email</th>
 												<th>Website</th>
 												<th>Isi Komentar</th>
+												<th>Judul</th>
 												<th>Waktu Komentar</th>
 												<th>Aksi</th>
 											</tr>
@@ -44,6 +45,7 @@
 												<td><?php echo $a->email?></td>
 												<td><?php echo $a->website?></td>
 												<td><?php echo $a->isi_komentar?></td>
+												<td><?=$a->judul?></td>
 												<td><?php echo $a->waktu?></td>
 												<td><center>
 													<a href="<?php echo base_url()?>admin/ukm/delete_komentar/<?php echo $a->id_komentar?>">

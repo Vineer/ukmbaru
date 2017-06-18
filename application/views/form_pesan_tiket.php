@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>|| &nbsp; Enstruct</title>
+    <title>|| &nbsp; InterUKM</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="main-title text-center wow fadeInUp">
-                            <h2>Pemesanan Tiket Event UKM</h2>
+                            <h2>Pemesanan Tiket Acara UKM</h2>
                         </div>
                     </div>
                 </div>
@@ -105,6 +105,7 @@
                                                         <div class="form-group">
                                                            <b>Acara</b>
                                                            <select name="acara" id="acara">
+                                                                <option>Pilih Acara</option>
                                                             <?php foreach($acara->result_array() as $row) {?>
                                                                 <option name="acara" id="acara" value="<?php echo $row['nama_event'];?>">
                                                                 <?php echo $row['nama_event']?> -- 
@@ -116,8 +117,14 @@
                                                         </div>
                                                         <div class="form-group">
                                                            <b>Jumlah Tiket</b>
-                                                            <input type="text" placeholder="Jumlah Tiket *" id="jml_tiket" name="jml_tiket">
+                                                            <input type="text" placeholder="Jumlah Tiket *" id="jml_tiket" name="jml_tiket" onchange="hitung()">
                                                             <?php echo form_error('jml_tiket'); ?>
+                                                        </div>
+                                                        <div id="hasil"><input type="" name="" hidden></div>
+                                                        <div class="form-group">
+                                                           <b>Total Harga</b>
+                                                            <input type="text" placeholder="Jumlah Tiket *" id="total_harga" name="total_harga">
+                                                            <!-- <?php echo form_error('jml_tiket'); ?> -->
                                                         </div>
                                                         <!-- order note -->
                                                     </div>
@@ -182,6 +189,30 @@
 
     <!--smooth scrollling-->
     <script src="<?php echo base_url('assets/js/jQuery.scrollSpeed.js'); ?>"></script>
+    <script>
+        $(document).ready(function() {
+            $("#acara").change(function() {
+                var nama = $(this).val();
+                $.ajax({
+                    url: 'http://localhost/ukmbaru/beranda/AmbilHargaTiket',
+                    method: 'post',
+                    data: {nama:nama},
+                    success: function(data) {
+                        $('#hasil').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        function hitung() {
+            var tiket, harga = 0;
+            tiket = document.getElementById('jml_tiket').value;
+            harga = document.getElementById('harga_tiket').value;
+            var total = tiket * harga;
+            document.getElementById('total_harga').value = "Rp. "+total.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");;
+        }
+    </script>
 
     <!--Costom js-->
     <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>

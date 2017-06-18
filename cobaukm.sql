@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2017 at 05:22 PM
+-- Generation Time: Jun 19, 2017 at 09:48 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,7 +41,7 @@ CREATE TABLE `akun` (
 
 INSERT INTO `akun` (`id_akun`, `username`, `password`, `jenis_akses`, `nim`, `id_ukm`) VALUES
 (1, 'komang', 'komang123', 'Administrator', NULL, 1),
-(2, 'teti', 'teti123', 'Administrator', NULL, 2),
+(2, 'padang', 'padang123', 'Administrator', NULL, 1236),
 (3, 'resita', 'resita123', 'Superadmin', NULL, 3),
 (10, 'rere', 'rere', 'Mahasiswa', 6701140223, 4),
 (13, 'kara', 'kara123', 'Mahasiswa', 6701146754, 5),
@@ -52,9 +52,9 @@ INSERT INTO `akun` (`id_akun`, `username`, `password`, `jenis_akses`, `nim`, `id
 (18, 'faisal', 'faisal123', 'Mahasiswa', 670112321, 0),
 (19, 'tetyhandayani', 'tetydoang', 'Mahasiswa', 6701140076, 0),
 (20, 'djawa', 'djawa123', 'Administrator', NULL, 0),
-(21, 'padang', 'padang', 'Administrator', NULL, 0),
-(22, 'padang', 'padang', 'Administrator', NULL, 0),
-(23, 'amelia', 'amelia', 'Mahasiswa', 6701148899, 0);
+(23, 'amelia', 'amelia', 'Mahasiswa', 6701148899, 0),
+(24, 'jember', 'jember', 'Administrator', NULL, 0),
+(25, 'jember', 'jember', 'Administrator', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,8 @@ INSERT INTO `artikel` (`kd_artikel`, `penerbit`, `kategori`, `tgl_terbit`, `kont
 (1235, 'UKM Kesenian Widyacana Murti', 'Kebudayaan', '2017-06-13', '<div>Jika anda pernah mengunjungi Bali, anda akan merasa dipermainkan jika anda pikir nama setiap orang yang anda temui bernama Wayan. Anak-anak orang Bali diberi nama berdasarkan sesuai dengan kasta keluarga yang di miliki dan di urutkan berdasarkan kelahiran mereka.90% dari populasi masing-masing memiliki satu kasta, nama-nama seperti Made. Wayan dan Nyoman begitu sangat populer.</div><div>Masyarakat Bali didasarkan pada sistem kasta Hindu, meskipun tidak serumit bentuk yang terjadi di India. Versi sederhana ini menjelaskan penempatan orang ke dalam 4 kasta yang berbeda:</div><div><br></div><div>- Brahmana (Pendeta)</div><div>Ini merupakan kasta para pemuka agama dan orang suci yang melakukan upacara keagamaan yang sangat penting.</div><div>Ida Bagus - untuk anak laki-laki</div><div>Ida Ayu or Dayu - untuk anak perempuan</div><div><br></div><div>- Ksatria (Penguasa/ksatria)</div><div>Anggota kasta ini mencangkup beberapa bangsawan dan raja (contohnya. Anggota keluarga kerajaan)</div><div>Anak Agung, Agung, Dewa - untuk anak laki-laki</div><div>Anak Agung, Agung, Dewi, Dewayu - untuk anak perempuan</div><div>Cokorda, Dewa Agung untuk anggota kerajaan yang berkuasa.</div><div>Kasta Ksatria juga memiliki nama tengah sebagai berikut&nbsp;</div><div>Raka - saudara perempuan/lakui-laki tertua&nbsp;</div><div>Oka - bungsu</div><div>Rai - saudara perempuan/laki-laki termuda</div><div>Anom - perempuan muda</div><div>Ngurah - seseorang yang berwenang</div><div><br></div><div>- Wesia (Pedagang)</div><div>Gusti (tuan) - untuk laki-laki dan perempuan</div><div>Dewa - untuk laki-laki</div><div>Desak - untuk perempuan</div><div><br></div><div>- Sudra (Petani)</div><div>Merupakan populasi paling banyak (lebih dari 90%) di Bali memiliki kasta ini</div><div>Wayan, Putu, Gede - &nbsp;anak pertama laki-laki&nbsp;</div><div>Wayan, Putu, Iluh - &nbsp;anak pertama perempuan&nbsp;</div><div>Made, Kadek, Nengah - anak kedua untuk laki-laki dan perempuan</div><div>Nyoman, Komang - anak ketiga untuk laki-laki dan perempuan&nbsp;</div><div>Ketut - anak keempat untuk laki-laki dan perempuan</div><div>Jika seseorang merupakan anak ke lima maka beralih kembali ke nama yang sama dengan anak pertama lahir.</div><div>Sistem yang unik ini hanyalah sedikit bagian dari hal yang menarik di Bali. Jadi jangan heran jika anda memanggil \"Made\" di tengah orang banyak dan beberapa orang akan berbalik memanggil anda!</div>', 'Kasta Hindu di Bali', 6, 0),
 (1236, 'UKM Rumah Gadang', 'Kebudayaan', '2017-06-12', '<div>Makan bajamba tradisi Minang merupakan tradisi dari leluhur nenek moyang yang terus dibudayakan sampai sekarang. Makan bajamba sendiri maksudnya adalah makan didalam pinggan besar secara bersama-sama.</div><div>Makan bajamba disebut juga dengan makan barapak, Biasanya terdiri dari 5 sampai 7 orang. Rata-rata didaerah Minangkabau mempunyai cara makan bajamba namun dengan gaya masing-masing pula.</div><div>Umumnya yang membedakan adalah jenis makanan yang di hidangkan. untuk daerah Bukttinggi yang dipengaruhi oleh adat Kurai Limo Jorong makan bajamba dengan menggunakan \"samba nan salapan\". Maksudnya ada lauk khusus yang harus wajib ada pada acara makan bajamba.</div><div>Makan bajamba tradisi Minang akan bajamba sering dilakukan pada saat pelaksanaan baralek dan acara penting lainnya seperti ulang tahun kota.</div><div>Bahkan makan bajamba digelar ketika ada menyambut tamu penting.</div><div>Tujuannya untuk memupuk tali silaturrahmi dan memunculkan rasa kebersamaan tanpa melihat status dan pangkat.</div><div>Biasanya acara makan bajamba ini di adakan di sebuah rumah atau tempat khusus yang diikuti puluhan atau ratusan orang. Ketika makan bajamba semua orang larut dalam kebahagiann karena bekerjasama menghabiskan nasi yang super banyak di pinggan.</div>', 'Makan Bajamba', NULL, 0),
 (1237, 'UKM Betawie', 'Kebudayaan Daerah', '2017-06-12', '<div>Tidak Banyak yang tahu, bahwa sesungguhnya nama rumah asli suku Betawi adalah Rumah Kebaya. Sekilas namanya terdengar seperti jenis pakian nasional. Namun, tahukah Anda mengapa rumah ini disebut sebagai Rumah Kebaya?</div><div>Disebut dengan Rumah Kebaya karena bentuk atap yang menyerupai pelana yang dilipat dan apabila dilihat dari samping maka lipatan-lipatan tersebut terlihat seperti lipatan kebaya.</div><div>Nama Rumah Kebaya memang tidak populer, sebab masyarakat lebih familiar dengan Rumah Joglo. Padahal sebenarnya, Rumah Joglo merupakan rumah adat Jawa.</div><div>Kendati sekilas keduanya serupa, namun jika dilihat secara seksama, keduanya sangatlah berbeda. Salah satu perbedaannya terlihat dari atap rumah. Rumah Joglo atapnya tidak menyerupai pelana layaknya lipatan, tetapi menyerupai seperti perahu terbalik.</div><div>Rumah Kebaya sendiri memiliki karakteristik yang khas. Ciri khas dari rumah ini adalah dilihat dari teras yang luas. Teras tersebut berguna untuk menjamu tamu dan menjadi tempat bersantai keluarga.</div><div>Berbeda dengan rumah modern di mana ruang keluarga biasanya ada di dalam rumah, tetapi di Rumah Kebaya, teras luar inilah tempat favorit keluarga untuk bersenda gurau.</div><div>Di teras, terdapat kursi bale-bale dari rotan, bambu, atau kayu jati yang disebut amben. Lantai teras diberi nama gejogan, yang memiliki simbol penghormatan kepada tamu.</div><div>Bagi masyarakat Betawi, gejongan ini dianggap sakral atau kramat, karena berhubungan langsung dengan tangga masuk bernama balaksuji, yakni penghubung rumah dengan area luar.</div><div>Masyarakat Betawi juga membuat sumur di depan rumah dan pemakaman yang berada di samping rumah. Keberadaan makam di samping rumah merupakan tradisi lawas masyarakat Betawi.</div><div>Affan Banon Dirga, Masyarakat Betawi Condet mengungkapkan mengapa makam berada di samping rumah, yaitu agar pihak keluarga yang masih hidup akan sebuah kematian.</div><div>\"Jadi, ketika membuka jendela kamar , pemandangan pertama dilihat adalah makam. Selain itu, dengan adanya makam, sanak saudara yang tidak tinggal di rumah tersebut bisa berziarah tanpa harus menempuh jarak jauh,\" Katanya.</div><div>Namun, seiringnya perkembanga zaman dan lahan yang kian terbatas, tradisi menyimpan makam di dekat rumah sudah mulai ditinggalkan.</div><div>Rumah Kebaya memiliki dinding rumah yang terbuat dari panel-panel yang dapat dibuka dan digeser-geser hingga ke tepi. Tujuannya agar rumah terasa lebih luas. Selain itu, sirkulasi udara pun akan terjadi tanpa sekat.</div>', 'Filosopi Rumah Adat Betawi', NULL, 0),
-(1239, 'UKM Permala', 'Kebudayaan Daerah', '2017-06-13', '<div>[ALL ABOUT LAMPUNG]</div><div><br></div><div>Apa itu Sekura?</div><div>Sekura berarti penutup wajah atau topeng. Pesta sekura adalah sebuah pesta rakyat yang seluruh pesertanya menutup wajah.&nbsp;</div><div>Sekura merupakan jenis topeng yang digunakan dalam perhelatan pesta sekura. Seseorang dapat disebut ber-sekura ketika sebagian atau seluruh wajahnya tertutup. Penutup wajah dapat berupa topeng dari kayu, kacamata, kain, atau hanya polesan warna. Untuk menambah kemeriahan acara, sekura bisa dipadukan dengan berbagai busana dengan warna-warna meriah atau mencolok.</div><div><br></div><div>Pesta sekura merupakan perhelatan rutin yang diadakan oleh masyarakat Kabupaten Lampung Barat. Pesta rakyat ini selalu diadakan ketika menyambut Hari Raya Idul Fitri. Dalam acara ini, peserta acara diwajibkan mengenakan topeng dengan berbagai karakter dan ekspresi. Pesta sekura merupakan wujud ungkapan rasa syukur dan suka cita menyambut hari yang suci.</div><div>Pesta ini berlangsung dari 1 sampai 7 Syawal setiap tahunnya. Sebuah bentuk perayaan kemenangan setelah menahan hawa nafsu selama bulan Ramadhan. Bukan sebagai pelampiasan puasa sebulan ya… Juga sebagai ajang silaturahmi dan bermaafan.</div><div>Sekura dibagi menjadi dua, Sekura Kamak dan Sekura Betik.&nbsp;</div><div>- Sekura kamak mengenakan topeng kayu dan berbaju compang-camping.&nbsp;</div><div>- Sekura Betik/Kecah mengenakan tutup muka berupa kain khas motif Lampung yang disebut selendang miwang.&nbsp;</div><div>Bermotif kembang cengkeh ataupun motif lain. Pesta diakhiri dengan panjat pinang yang hanya bisa diikuti oleh Sekura Kamak saja.</div><div><br></div><div>Kapan Ada Pesta Sekura??</div><div>Tidak susah untuk mengingat kapan bakal ada acara ini di Liwa. Siap-siap saja untuk agendakan kunjungan ke Liwa pada 1 – 7 Syawal. Karena acara pesta Sekura ini selalu ada tiap tahunnya. Menjadi perayaan kemenangan setelah sebulan menahan hawa nafsu. Juga sebagai wadah silaturrahim warga pekon.</div>', 'All About Lampung', NULL, 0);
+(1239, 'UKM Permala', 'Kebudayaan Daerah', '2017-06-13', '<div>[ALL ABOUT LAMPUNG]</div><div><br></div><div>Apa itu Sekura?</div><div>Sekura berarti penutup wajah atau topeng. Pesta sekura adalah sebuah pesta rakyat yang seluruh pesertanya menutup wajah.&nbsp;</div><div>Sekura merupakan jenis topeng yang digunakan dalam perhelatan pesta sekura. Seseorang dapat disebut ber-sekura ketika sebagian atau seluruh wajahnya tertutup. Penutup wajah dapat berupa topeng dari kayu, kacamata, kain, atau hanya polesan warna. Untuk menambah kemeriahan acara, sekura bisa dipadukan dengan berbagai busana dengan warna-warna meriah atau mencolok.</div><div><br></div><div>Pesta sekura merupakan perhelatan rutin yang diadakan oleh masyarakat Kabupaten Lampung Barat. Pesta rakyat ini selalu diadakan ketika menyambut Hari Raya Idul Fitri. Dalam acara ini, peserta acara diwajibkan mengenakan topeng dengan berbagai karakter dan ekspresi. Pesta sekura merupakan wujud ungkapan rasa syukur dan suka cita menyambut hari yang suci.</div><div>Pesta ini berlangsung dari 1 sampai 7 Syawal setiap tahunnya. Sebuah bentuk perayaan kemenangan setelah menahan hawa nafsu selama bulan Ramadhan. Bukan sebagai pelampiasan puasa sebulan ya… Juga sebagai ajang silaturahmi dan bermaafan.</div><div>Sekura dibagi menjadi dua, Sekura Kamak dan Sekura Betik.&nbsp;</div><div>- Sekura kamak mengenakan topeng kayu dan berbaju compang-camping.&nbsp;</div><div>- Sekura Betik/Kecah mengenakan tutup muka berupa kain khas motif Lampung yang disebut selendang miwang.&nbsp;</div><div>Bermotif kembang cengkeh ataupun motif lain. Pesta diakhiri dengan panjat pinang yang hanya bisa diikuti oleh Sekura Kamak saja.</div><div><br></div><div>Kapan Ada Pesta Sekura??</div><div>Tidak susah untuk mengingat kapan bakal ada acara ini di Liwa. Siap-siap saja untuk agendakan kunjungan ke Liwa pada 1 – 7 Syawal. Karena acara pesta Sekura ini selalu ada tiap tahunnya. Menjadi perayaan kemenangan setelah sebulan menahan hawa nafsu. Juga sebagai wadah silaturrahim warga pekon.</div>', 'All About Lampung', NULL, 0),
+(1240, 'UKM Rumah Gadang', 'Kebudayaan Daerah', '2017-06-19', '<div>Alhamdulillah sudah terlaksana Buko Basamo Alumni Rumah Gadang.</div><div>Semoga uda uni alumni Rumah Gadang dapat selalu menjaga silahturahmi ini dengan baik kedepannya. Aamiin</div><div><br></div><div>Jangan lupa besok akan diadakan Buko Basamo Rumah Gadang dan Charity, regional Sumbar. Ditunggu kedatangan uda uni yg berada di Sumbar</div><div><br></div><div>Rumah Gadang Kokoh, Nagari Tagak</div><div>#HANTAM</div>', 'Kebersamaan Keluarga Kami', 1236, 0);
 
 -- --------------------------------------------------------
 
@@ -137,10 +138,14 @@ CREATE TABLE `data_panitia` (
 --
 
 INSERT INTO `data_panitia` (`kd_panitia`, `nama_mhs`, `nim_mhs`, `ukm_pilihan`, `fakultas`, `jurusan`, `divisi`, `no_hp`, `email`, `motivasi`, `cv`, `foto`, `status`) VALUES
-(1, 'komang', '7778812888', 'UKM Bola', 'FIT', 'yyyyy', 'sponsorship', '9999928', 'hadi@gmail.com', 'hhhhushsahahhs', 'FI-Benua-Etam.jpg', 'senior.jpg', 'Diterima'),
+(1, 'komang', '7778812888', 'UKM Bola', 'FIT', 'yyyyy', 'sponsorship, acara', '9999928', 'hadi@gmail.com', 'hhhhushsahahhs', 'FI-Benua-Etam.jpg', 'senior.jpg', 'Diterima'),
 (2, 'hasan', '77777', 'UKM Bola', 'FIT', 'mi', 'acara', '09898', 'hadi@gmail.com', 'huhuhuhuhu', 'syukuran.jpg', 'championsip.jpg', ''),
 (3, 'roro', '6780284358', 'UKM Bola', 'FIT', 'mi', 'dokumentasi', '081382472587', 'hbchsbdhjcn', 'bcjnx sj', '6701140223 Registrasi _ Telkom University.pdf', 'ukm1.jpg', ''),
-(4, 'KOMANG', '6701146287', 'UKM Bola', 'FIT', 'mi', 'logistik', '093678549', 'komang', 'ingin mencari pengalaman', '6701140223 Nilai _ Telkom University.pdf', 'ukm5.jpg', 'Diterima');
+(4, 'KOMANG', '6701146287', 'UKM Bola', 'FIT', 'mi', 'logistik', '093678549', 'komang', 'ingin mencari pengalaman', '6701140223 Nilai _ Telkom University.pdf', 'ukm5.jpg', 'Diterima'),
+(5, 'tety handayani', '6701140076', 'UKM Bola', 'FIT', 'MI', 'konsumsi', '0815264356', 'tety@gmail.com', 'bvbvbv', 'Aksara Telkom.jpg', 'Aksara Telkom.jpg', ''),
+(6, 'tety handayani', '6701140076', 'UKM Bola', 'FIT', 'mi', 'logistik', '0815264356', 'resita@gmail.com', 'asa', 'Alek Rumah Gadang.jpg', 'Alek Rumah Gadang.jpg', ''),
+(7, 'tety handayani', '6701140076', 'Alek Rumah Gadang 2017', 'FIT', 'MI', 'acara', '0815264356', 'resita@gmail.com', 'asasas', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', ''),
+(9, 'bayu', '6701140076', 'Alek Rumah Gadang 2017', 'FIT', 'MI', 'logistik', '0815264356', 'bsapp@gmail.com', 'asasaksjkhdwgdyqwgdtyqrd', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -188,22 +193,27 @@ CREATE TABLE `data_pesan_tiket` (
   `nim` varchar(10) NOT NULL,
   `acara` varchar(100) NOT NULL,
   `jml_tiket` varchar(50) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `total_harga` int(11) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `no_telp` int(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `id_event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `data_pesan_tiket`
 --
 
-INSERT INTO `data_pesan_tiket` (`kd_booking`, `nama_mhs`, `nim`, `acara`, `jml_tiket`, `status`) VALUES
-(1, 'Dinda Wijayanti', '6701140221', '', '3', 'Lunas'),
-(2, 'qwe', '342342', '', '10', 'Lunas'),
-(3, 'resita tri sukmawati', '6701140223', '', '2', ''),
-(5, 'tety handayani', '6701140076', '', '5', ''),
-(6, 'Testes', '123123123', '', '2', ''),
-(7, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '2', ''),
-(8, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '4', ''),
-(9, 'Resita Tri Sukmawati', '6701140223', 'Gala Abhinaya', '3', '');
+INSERT INTO `data_pesan_tiket` (`kd_booking`, `nama_mhs`, `nim`, `acara`, `jml_tiket`, `total_harga`, `status`, `no_telp`, `email`, `id_event`) VALUES
+(3, 'resita tri sukmawati', '6701140223', '', '2', 0, '', 826427, '', 0),
+(5, 'tety handayani', '6701140076', '', '5', 0, '', 2374823, 'tetihandayani51@gmail.com', 0),
+(6, 'Testes', '123123123', '', '2', 0, '', 0, '', 0),
+(7, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '2', 0, '', 0, '', 0),
+(8, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '4', 0, '', 0, '', 0),
+(9, 'Resita Tri Sukmawati', '6701140223', 'Gala Abhinaya', '3', 0, '', 0, '', 0),
+(10, 'Teti Handayani', '6701140076', 'Dies Natalis XXIV - Calonarang', '2', 0, '', 0, '', 0),
+(11, 'Teti Handayani', '6701140076', 'Gala Abhinaya', '1', 0, '', 0, '', 0),
+(13, 'Teti Handayani', '6701140076', 'Dies Natalis XXIV - Calonarang', '4', 200000, '', 0, '', 235243);
 
 -- --------------------------------------------------------
 
@@ -217,6 +227,7 @@ CREATE TABLE `event` (
   `tanggal` date DEFAULT NULL,
   `tempat` varchar(50) DEFAULT NULL,
   `waktu` time DEFAULT NULL,
+  `selesai` time NOT NULL,
   `harga_tiket` int(100) NOT NULL,
   `penyelenggara` varchar(200) NOT NULL,
   `poster` varchar(200) NOT NULL,
@@ -231,11 +242,12 @@ CREATE TABLE `event` (
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`id_event`, `nama_event`, `tanggal`, `tempat`, `waktu`, `harga_tiket`, `penyelenggara`, `poster`, `konten`, `id_ukm`, `status_approval`, `status_terlaksana`, `rating`) VALUES
-(235243, 'Dies Natalis XXIV - Calonarang', '2017-04-16', 'Gedung Serba Guna Universitas Telkom', '18:00:00', 50000, 'UKM Kesenian Bali Widyacana Murti', '10372.jpg', '<div>Rasakan Suasana Bali disini!</div><div>Dies Natalis XXIV UKM Kesenian Bali Widyacanamurti</div><div>Pre-event [Free Entry]</div><div>16 April 2016</div><div>19.00 WIB</div><div><br></div><div>Sendratari Calonarang Part I</div><div>Pawai Ogoh-ogoh</div><div>Barong Bangkung</div><div>Baleganjur</div><div>Fire Dance</div><div><br></div><div>Start : ATM Centre FRI</div><div>Finish : Gd Tokong Nanas</div><div><br></div><div>Peak Event [Presale 2 IDR 25K/ OTS IDR 30K]</div><div>23 April 2016</div><div>Open gate 18.00 WIB</div><div><br></div><div>Sendratari Calonarang part II</div><div>Musik Kolaborasi Kontemporer</div><div>Tari Siwa Nataraja</div><div>Tari Sekar Jagat</div><div>Tari Sekar Ibing</div><div><br></div><div>At Gedung Serba Guna</div><div><br></div><div>Untuk puncak acara jangan lupa beli tiketnya yang bisa didapatkan langsung dengan menghubungi :</div><div><br></div><div>Official Line Account : @eaq3792d</div><div>LINE : bayupurnama_</div>', 123, 1, 'Belum', 1),
-(235244, 'Pagelaran Seni dan Budaya Betawie', '2017-04-02', 'Aula FIT', '19:00:00', 30000, 'UKM Betawie', 'UKM_Betawie3.jpg', '<div>Panggilan untuk abang mpok semuanyeeeeee!!!!!!!!! UKM Betawie telkom University dengan bangga nampilin \"PAGELARAN SENI &nbsp;DAN BUDAYA BETAWIE 2016\"</div><div>Hari/Tanggal : Sabtu 2 april 2016</div><div>Tempat : Aula FIT</div><div>Ebuset masa iya kaga dateng !! Kapan lagi nih abang mpok bisa nonton&nbsp;</div><div>pertunjukan nyang megah tentang kebudayaan betawi di tanah sunda ini.</div><div>Nyokk dahh semuanye datang dan ramein nihh acara Budaya Betawi tercinte.&nbsp;</div><div>Aye jamin, kaga bakal ada yang nyesel dahh</div><div>Lebih lengkapnye lagi, lu pada bisa tanya tanya nih ke orang ini :</div><div>Id line : widyalifianti / 089679931848</div><div>#Pagelaranbetawie2016</div><div>#betawiepunyagaye</div>', NULL, 1, 'Sudah', 2),
-(235245, 'Alek Rang Minang feat Ajo Buset', '2017-04-16', 'Aula Fakultas Komunikasi Bisnis Telkom University', '19:00:00', 25000, 'UKM Rumah Gadang', 'rumah_gadang.jpg', '<div>Iko nyo nan dinanti nanti kini lah tibo,</div><div>Alek bukan sumbarang alek, aleknyo bujang jo gadih minang ditanah rantau</div><div>RUMAH GADANG TELKOM UNIVERSITY Proudly Present</div><div>Grand Launching Rumah Gadang Telkom University ALEK RANG MINANG \"Maluruihkan Bandang Nan Kusuik\" Ft. Ajo Buset</div><div>Drama, Tari, Randai, Silek, dan musik tradisional Minangkabau dikemas menjadi sebuah pertunjukan menarik dan sangat ditunggu.</div><div>Hari: Sabtu, 16 April 2016</div><div>Tempat: Aula Fakultas Komunikasi Bisnis, Telkom University</div><div>Note the date from NOW!</div><div>#ARM2016</div><div>#RumahGadangTelkom</div>', NULL, 1, 'Sudah', 0),
-(235246, 'Gala Abhinaya', '2017-04-26', 'Lapangan Parkir Telkom Convention Hall', '15:00:00', 75000, 'UKM Band', 'Ukm_band.jpg', '<div>UKM BAND Telkom University</div><div>Mempersembahkan</div><div>GALA ABHINAYA</div><div>\"Satukan Budaya dengan Irama\"</div><div>Dibintangi oleh :</div><div>- ALEXA</div><div>- Barry Likumahuwa \"Feel Good Collective\"</div><div>- \"Arumba\" by Saung Angklung Udjo</div><div>Penampilan Tradisional oleh :</div><div>- UKM Permala (Lampung)</div><div>- UKM KBMS (Sulawesi)</div><div>- UKM Bali Widyacana Murti</div><div>Penampilan Band oleh :</div><div>- SEREVINA &amp; friends</div><div>- Green Tea Latte</div><div>dan kunjungi juga Culinary Festival!!</div><div>Dilaksanakan pada :</div><div>April 26th, 2015</div><div>di Lapangan Parkir Telkom Convention Hall</div><div>Jl.Telekomunkasi no.1, Dayeuhkolot, Bandung</div><div>Mulai Pukul :</div><div>15.00 WIB</div><div>Tiket :</div><div>Presale 1 : IDR 28.000 (21 Mar - 5 Apr 2015)</div><div>Presale 2 : IDR 38.000 (6 Apr - 16 Apr 2015)</div><div>OTS : IDR 50.000</div><div>Contact Person :</div><div>- Untuk Tiket :</div><div>Muhe : 0853 5290 9966</div><div>Eddy : 0857 3970 6333&nbsp;</div><div>- Untuk Event :</div><div>Arvel : 0813 1850 6384</div><div>Ilham : 0812 90 575 909</div><div>Stand Tiket :</div><div>Kantin TES (Business Center)</div><div>Senin - Jumat, 12.00 - 16.00 WIB</div><div>Nikmatilah atmosfir dari kebudayaan tradisonal Indonesia yang dipadukan oleh modernisasi, hanya di GALA ABHINAYA!</div><div>Twitter &amp; Instagram :</div><div>@UKMBANDUNITEL</div>', NULL, 1, 'Belum', 0);
+INSERT INTO `event` (`id_event`, `nama_event`, `tanggal`, `tempat`, `waktu`, `selesai`, `harga_tiket`, `penyelenggara`, `poster`, `konten`, `id_ukm`, `status_approval`, `status_terlaksana`, `rating`) VALUES
+(235243, 'Dies Natalis XXIV - Calonarang', '2017-04-16', 'Gedung Serba Guna Universitas Telkom', '18:00:00', '00:00:00', 50000, 'UKM Kesenian Bali Widyacana Murti', '10372.jpg', '<div>Rasakan Suasana Bali disini!</div><div>Dies Natalis XXIV UKM Kesenian Bali Widyacanamurti</div><div>Pre-event [Free Entry]</div><div>16 April 2016</div><div>19.00 WIB</div><div><br></div><div>Sendratari Calonarang Part I</div><div>Pawai Ogoh-ogoh</div><div>Barong Bangkung</div><div>Baleganjur</div><div>Fire Dance</div><div><br></div><div>Start : ATM Centre FRI</div><div>Finish : Gd Tokong Nanas</div><div><br></div><div>Peak Event [Presale 2 IDR 25K/ OTS IDR 30K]</div><div>23 April 2016</div><div>Open gate 18.00 WIB</div><div><br></div><div>Sendratari Calonarang part II</div><div>Musik Kolaborasi Kontemporer</div><div>Tari Siwa Nataraja</div><div>Tari Sekar Jagat</div><div>Tari Sekar Ibing</div><div><br></div><div>At Gedung Serba Guna</div><div><br></div><div>Untuk puncak acara jangan lupa beli tiketnya yang bisa didapatkan langsung dengan menghubungi :</div><div><br></div><div>Official Line Account : @eaq3792d</div><div>LINE : bayupurnama_</div>', 1236, 1, 'Belum', 1),
+(235244, 'Pagelaran Seni dan Budaya Betawie', '2017-04-02', 'Aula FIT', '19:00:00', '00:00:00', 30000, 'UKM Betawie', 'UKM_Betawie3.jpg', '<div>Panggilan untuk abang mpok semuanyeeeeee!!!!!!!!! UKM Betawie telkom University dengan bangga nampilin \"PAGELARAN SENI &nbsp;DAN BUDAYA BETAWIE 2016\"</div><div>Hari/Tanggal : Sabtu 2 april 2016</div><div>Tempat : Aula FIT</div><div>Ebuset masa iya kaga dateng !! Kapan lagi nih abang mpok bisa nonton&nbsp;</div><div>pertunjukan nyang megah tentang kebudayaan betawi di tanah sunda ini.</div><div>Nyokk dahh semuanye datang dan ramein nihh acara Budaya Betawi tercinte.&nbsp;</div><div>Aye jamin, kaga bakal ada yang nyesel dahh</div><div>Lebih lengkapnye lagi, lu pada bisa tanya tanya nih ke orang ini :</div><div>Id line : widyalifianti / 089679931848</div><div>#Pagelaranbetawie2016</div><div>#betawiepunyagaye</div>', NULL, 1, 'Sudah', 2),
+(235245, 'Alek Rang Minang feat Ajo Buset', '2017-04-16', 'Aula Fakultas Komunikasi Bisnis Telkom University', '19:00:00', '00:00:00', 25000, 'UKM Rumah Gadang', 'rumah_gadang.jpg', '<div>Iko nyo nan dinanti nanti kini lah tibo,</div><div>Alek bukan sumbarang alek, aleknyo bujang jo gadih minang ditanah rantau</div><div>RUMAH GADANG TELKOM UNIVERSITY Proudly Present</div><div>Grand Launching Rumah Gadang Telkom University ALEK RANG MINANG \"Maluruihkan Bandang Nan Kusuik\" Ft. Ajo Buset</div><div>Drama, Tari, Randai, Silek, dan musik tradisional Minangkabau dikemas menjadi sebuah pertunjukan menarik dan sangat ditunggu.</div><div>Hari: Sabtu, 16 April 2016</div><div>Tempat: Aula Fakultas Komunikasi Bisnis, Telkom University</div><div>Note the date from NOW!</div><div>#ARM2016</div><div>#RumahGadangTelkom</div>', NULL, 1, 'Sudah', 0),
+(235246, 'Gala Abhinaya', '2017-04-26', 'Lapangan Parkir Telkom Convention Hall', '15:00:00', '00:00:00', 75000, 'UKM Band', 'Ukm_band.jpg', '<div>UKM BAND Telkom University</div><div>Mempersembahkan</div><div>GALA ABHINAYA</div><div>\"Satukan Budaya dengan Irama\"</div><div>Dibintangi oleh :</div><div>- ALEXA</div><div>- Barry Likumahuwa \"Feel Good Collective\"</div><div>- \"Arumba\" by Saung Angklung Udjo</div><div>Penampilan Tradisional oleh :</div><div>- UKM Permala (Lampung)</div><div>- UKM KBMS (Sulawesi)</div><div>- UKM Bali Widyacana Murti</div><div>Penampilan Band oleh :</div><div>- SEREVINA &amp; friends</div><div>- Green Tea Latte</div><div>dan kunjungi juga Culinary Festival!!</div><div>Dilaksanakan pada :</div><div>April 26th, 2015</div><div>di Lapangan Parkir Telkom Convention Hall</div><div>Jl.Telekomunkasi no.1, Dayeuhkolot, Bandung</div><div>Mulai Pukul :</div><div>15.00 WIB</div><div>Tiket :</div><div>Presale 1 : IDR 28.000 (21 Mar - 5 Apr 2015)</div><div>Presale 2 : IDR 38.000 (6 Apr - 16 Apr 2015)</div><div>OTS : IDR 50.000</div><div>Contact Person :</div><div>- Untuk Tiket :</div><div>Muhe : 0853 5290 9966</div><div>Eddy : 0857 3970 6333&nbsp;</div><div>- Untuk Event :</div><div>Arvel : 0813 1850 6384</div><div>Ilham : 0812 90 575 909</div><div>Stand Tiket :</div><div>Kantin TES (Business Center)</div><div>Senin - Jumat, 12.00 - 16.00 WIB</div><div>Nikmatilah atmosfir dari kebudayaan tradisonal Indonesia yang dipadukan oleh modernisasi, hanya di GALA ABHINAYA!</div><div>Twitter &amp; Instagram :</div><div>@UKMBANDUNITEL</div>', NULL, 1, 'Belum', 0),
+(235248, 'Alek Rumah Gadang 2017', '2017-06-20', 'Gedung Serba Guna Telkom', '14:00:00', '15:00:00', 35000, 'UKM Rumah Gadang', 'Alek_Rumah_Gadang6.jpg', '<div>[ALEK RUMAH GADANG 2017]</div><div><br></div><div>Assalamualaikum..</div><div>Hallo uda uni Penampil ARG\'17</div><div>Kita akan mengadakan latihan gabungan pertama seluruh PENAMPIL ALEK RUMAH GADANG 2017 :&nbsp;</div><div><br></div><div>Hari/ Tanggal: Rabu,25 Januari 2017</div><div>Tempat &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: GSG</div><div>Jam &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 18.00</div><div><br></div><div>*seluruh penampil wajib untuk hadir di latihan pertama ini.&nbsp;</div><div><br></div><div>Atas perhatiannya, kami ucapkan Terima Kasih.</div><div><br></div><div>\"satu orang bisa menjadi bahan penting dalam sebuah tim, namun satu orang tidak dapat membuat sebuah tim - Kareem Abdul-Jabbar\"</div><div><br></div><div>#AlekRumahGadang2017</div><div>#RumahGadangTel-U</div>', 1236, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -247,6 +259,7 @@ CREATE TABLE `feedback` (
   `id_feedback` int(11) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `nama_event` varchar(250) NOT NULL,
   `kritik` varchar(500) NOT NULL,
   `saran` varchar(500) NOT NULL,
   `nim` bigint(10) DEFAULT NULL
@@ -256,10 +269,11 @@ CREATE TABLE `feedback` (
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id_feedback`, `nama`, `email`, `kritik`, `saran`, `nim`) VALUES
-(1, 'resita', 'resita@gmail.com', 'bagus', 'good', NULL),
-(2, 'rega', 'rega@gmail.com', 'jelek', 'ngga', NULL),
-(3, 'Teti Handayani', 'tetihandayani51@gmail.com', 'acara kurang menarik', 'buat konsep lebih bagus lagi', 6701140076);
+INSERT INTO `feedback` (`id_feedback`, `nama`, `email`, `nama_event`, `kritik`, `saran`, `nim`) VALUES
+(1, 'resita', 'resita@gmail.com', '', 'bagus', 'good', NULL),
+(2, 'rega', 'rega@gmail.com', '', 'jelek', 'ngga', NULL),
+(3, 'Teti Handayani', 'tetihandayani51@gmail.com', '', 'acara kurang menarik', 'buat konsep lebih bagus lagi', 6701140076),
+(4, 'res', 'resita@gmail.com', '', 'asas', 'qwqwq', 235243);
 
 -- --------------------------------------------------------
 
@@ -309,7 +323,8 @@ INSERT INTO `komentar` (`id_komentar`, `jenis`, `id_artikel`, `nama_komentar`, `
 (3, 'event', '4', 'ak aaa', 'aku@gmail.com', 'aku.net', 'aku aku aku', 'May 25, 2017, 7:04 pm', NULL),
 (5, 'artikel', '4', 'wa wa wa hehe', 'wa@gmail.com', 'wa.net', 'wah artikel yang sangat bagus', 'May 25, 2017, 7:29 pm', NULL),
 (7, 'artikel', '1235', 'hadi', 'hadikaes96@gmail.com', 'hadikaes.com', 'halo ini coba komentar', 'June 12, 2017, 8:44 pm', NULL),
-(8, 'event', '235243', 'tety', 'tety@gmail.com', '', 'event ukm', 'June 13, 2017, 4:07 am', NULL);
+(8, 'event', '1240', 'tety', 'tety@gmail.com', 'www.facebook.com', 'event ukm', 'June 13, 2017, 4:07 am', NULL),
+(9, 'event', '235243', 'resita', 'resita@gmail.com', '', 'resita aja ya kan', 'June 19, 2017, 4:34 am', NULL);
 
 -- --------------------------------------------------------
 
@@ -358,6 +373,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `fakultas`, `jurusan`, `email`, `no_telp
 (670112321, 'Faisal', 'FKB', 'MI', 'faisalfadli@gmail.com', '08122098789', 'author1.jpg', 'aktiv'),
 (6701140076, 'Teti Handayani', 'FIT', 'MI', 'tetihandayani51@gmail.com', '081220917250', 'blog2.jpg', 'aktiv'),
 (6701140223, 'Resita Tri Sukmawati', 'FIT', 'MI', 'resita@gmail.com', '081333840010', '10371.jpg', 'aktiv'),
+(6701144244, 'Tegar Jagat Geni A. P.', 'FIT', 'MI', 'tegar@gmail.com', '81223345566', 'author1.jpg', 'aktiv'),
+(6701144265, 'Bayu', 'FIT', 'MI', 'bsapp@gmail.com', '81226673133', 'author1.jpg', 'aktiv'),
+(6701144272, 'Asto Hartopo', 'FIT', 'MI', 'asto@gmail.com', '81226673133', 'author1.jpg', 'aktiv'),
 (6701146754, 'kara nadya na na', 'FIT', 'MI', 'karakara@gmail.com', '0815556666', 'rumah_gadang.jpg', 'non-aktiv'),
 (6701148899, 'Amelia Shabrina', 'Fakultas Ilmu Terapan', 'Manajemen Informatika', 'amelia@gmail.com', '081333456765', 'UKM_Fotographi.jpg', 'aktiv');
 
@@ -433,19 +451,22 @@ CREATE TABLE `ukm` (
   `deskripsi` varchar(500) NOT NULL,
   `sekre_ukm` varchar(200) NOT NULL,
   `logo_ukm` varchar(100) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `status` varchar(10) NOT NULL,
+  `nama_cp` varchar(50) NOT NULL,
+  `no_rekening` bigint(50) NOT NULL,
+  `bank` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ukm`
 --
 
-INSERT INTO `ukm` (`id_ukm`, `nama_ukm`, `kategori`, `slogan`, `deskripsi`, `sekre_ukm`, `logo_ukm`, `status`) VALUES
-(1, 'UKM Fotography Oke', 'Dokumentasi', 'Hasil Karya Terbaik', 'UKM ini didirikan pada tahun 2016 pada bulan Januari', 'Gedung GSG', 'UKM_Fotographi.jpg', 'aktiv'),
-(2, 'UKM Tennis Club', 'Olahraga', 'Tennis Club Solid', 'UKM Tennis merupakan salah satu kegiatan cabang olahraga di Telkom University', 'Student Center', 'UKM_Tennis_Club.jpg', 'non-aktiv'),
-(1235, 'UKM DJAWA', 'Kebudayaan Daerah', 'Tjap Parabola', 'Keluarga Wilayah Jawa berkumpul dalam UKM ini', 'Student Center', 'UKM_Djawa.jpg', 'non-aktif'),
-(1236, 'UKM Padang', 'Daerah', 'alek rang minang', 'UKM ini merupakan UKM asal daerah Padang', 'Belakang FKB', 'UKM_Rumah_Gadang.jpg', 'non-aktif'),
-(1237, 'UKM Padang', 'daerah', 'alek rang minang', 'UKM asal padang', 'belakang FKB', 'UKM_Rumah_Gadang1.jpg', 'non-aktif');
+INSERT INTO `ukm` (`id_ukm`, `nama_ukm`, `kategori`, `slogan`, `deskripsi`, `sekre_ukm`, `logo_ukm`, `status`, `nama_cp`, `no_rekening`, `bank`) VALUES
+(1, 'UKM Fotography Oke', 'Dokumentasi', 'Hasil Karya Terbaik', 'UKM ini didirikan pada tahun 2016 pada bulan Januari', 'Gedung GSG', 'UKM_Fotographi.jpg', 'aktiv', '', 0, ''),
+(2, 'UKM Tennis Club', 'Olahraga', 'Tennis Club Solid', 'UKM Tennis merupakan salah satu kegiatan cabang olahraga di Telkom University', 'Student Center', 'UKM_Tennis_Club.jpg', 'non-aktiv', '', 0, ''),
+(1235, 'UKM DJAWA', 'Kebudayaan Daerah', 'Tjap Parabola', 'Keluarga Wilayah Jawa berkumpul dalam UKM ini', 'Student Center', 'UKM_Djawa.jpg', 'non-aktif', '', 0, ''),
+(1236, 'UKM Rumah Gadang', 'Daerah', 'Alek Rang Minang', 'UKM ini merupakan UKM asal daerah Sumatera Barat', 'Student Center', 'UKM_Rumah_Gadang.jpg', 'non-aktif', 'Viona', 346275417, 'BNI'),
+(1238, 'UKM Jember', 'daerah', 'jember berjayalah', 'ukm jember di ada adain aja', 'student center', 'UKM_Djawa1.jpg', 'non-aktif', '', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -562,12 +583,12 @@ ALTER TABLE `ukm`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
-  MODIFY `kd_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1240;
+  MODIFY `kd_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1241;
 --
 -- AUTO_INCREMENT for table `data_bukti_transfer`
 --
@@ -577,7 +598,7 @@ ALTER TABLE `data_bukti_transfer`
 -- AUTO_INCREMENT for table `data_panitia`
 --
 ALTER TABLE `data_panitia`
-  MODIFY `kd_panitia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kd_panitia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `data_pengurus`
 --
@@ -587,22 +608,22 @@ ALTER TABLE `data_pengurus`
 -- AUTO_INCREMENT for table `data_pesan_tiket`
 --
 ALTER TABLE `data_pesan_tiket`
-  MODIFY `kd_booking` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `kd_booking` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235247;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235249;
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id_feedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_feedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `lpj`
 --
@@ -632,7 +653,7 @@ ALTER TABLE `proposal`
 -- AUTO_INCREMENT for table `ukm`
 --
 ALTER TABLE `ukm`
-  MODIFY `id_ukm` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1238;
+  MODIFY `id_ukm` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1240;
 --
 -- Constraints for dumped tables
 --

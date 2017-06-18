@@ -85,21 +85,25 @@
                                                     <div class="col-md-8 col-sm-8">
                                                          <div class="form-group">
                                                            <b>Kode Pemesanan Tiket</b>
-                                                            <input type="text" placeholder="Kode Pemesanan Tiket *" name="kd_booking">
+                                                            <input type="text" placeholder="Kode Pemesanan Tiket *" name="kd_booking" id="kd_booking">
                                                             <?php echo form_error('kd_booking'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>Nama</b>
-                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama">
+                                                            <div id="namaa"><input type="text" placeholder="Nama Mahasiswa *" name="nama"></div>
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>NIM</b>
-                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim">
+                                                            <div id="nimm"><input type="text" placeholder="NIM Mahasiswa *" name="nim"></div>
                                                             <?php echo form_error('nim'); ?>
                                                         </div>
+                                                        <div class="form-group">
+                                                           <b>Acara</b>
+                                                            <div id="acaraa"><input type="text" placeholder="Acara *" name="acara"></div>
+                                                        </div>
                                                          <div class="form-group">
-                                                           <b>Upload Bukti Transfer</b>
+                                                           <b>Unggah Bukti Transfer</b>
                                                             <input type="file" class="form-control" name="foto-profil" ccept="image/*">
                                                         </div  
 
@@ -168,6 +172,50 @@
 
     <!--smooth scrollling-->
     <script src="<?php echo base_url('assets/js/jQuery.scrollSpeed.js'); ?>"></script>
+    <script>
+        function CekKode() {
+            var kode = document.getElementById('kd_booking').value;
+            alert(kode);
+        }
+
+        $(document).ready(function() {
+            $("#kd_booking").change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    url: 'http://localhost/ukmbaru/beranda/tampilNamaPemesan',
+                    method: "post",
+                    data: {id:id},
+                    success: function(data) {
+                        $('#namaa').html(data);
+                    }
+                });
+            });
+
+            $("#kd_booking").change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    url: 'http://localhost/ukmbaru/beranda/tampilNIMPemesan',
+                    method: "post",
+                    data: {id:id},
+                    success: function(data) {
+                        $('#nimm').html(data);
+                    }
+                });
+            });
+
+            $("#kd_booking").change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    url: 'http://localhost/ukmbaru/beranda/tampilAcaraPemesan',
+                    method: "post",
+                    data: {id:id},
+                    success: function(data) {
+                        $('#acaraa').html(data);
+                    }
+                });
+            });
+        });
+    </script>
 
     <!--Costom js-->
     <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>

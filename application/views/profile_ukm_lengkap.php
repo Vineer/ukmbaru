@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="main-title la page-title wow fadeInUp">
-                            <h2>detail profil UKM</h2>
+                            <h2> profil UKM lengkap</h2>
                         </div>
                     </div>
                 </div>

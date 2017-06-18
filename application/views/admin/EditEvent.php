@@ -34,15 +34,43 @@
                                 <label for="large2">Tempat</label>
                                 <?php echo form_error('tempat'); ?>
                             </div>
-                            <div class="form-group floating-label">
-                                <input type="text" class="form-control input-lg" id="waktu" name="waktu" value="<?= $query->waktu ?>">
-                                <label for="large2">Waktu</label>
-                                <?php echo form_error('waktu'); ?>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-group clockpicker" data-autoclose="true">
+                                                <input type="text" class="form-control input-lg" id="waktu" name="waktu">
+                                                    <span class="input-group-addon">
+                                                        <span class="fa fa-clock-o"></span>
+                                                    </span>
+                                            </div>
+                                            <label for="large2">Mulai</label>
+                                            <?php echo form_error('waktu'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-group clockpicker" data-autoclose="true">
+                                                <input type="text" class="form-control input-lg" id="selesai" name="selesai">
+                                                    <span class="input-group-addon">
+                                                        <span class="fa fa-clock-o"></span>
+                                                    </span>
+                                            </div>
+                                            <label for="large2">Selesai</label>
+                                            <?php echo form_error('selesai'); ?>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control input-lg" id="penyelenggara" name="penyelenggara" value="<?= $query->penyelenggara ?>">
+                                <input type="text" class="form-control input-lg" id="penyelenggara" name="penyelenggara" value="<?= $query->penyelenggara ?>" readonly >
                                 <label for="large2">Penyelenggara</label>
                                 <?php echo form_error('penyelenggara'); ?>
+                            </div>
+                            <div class="form-group floating-label">
+                                <input type="text" class="form-control input-lg" id="harga_tiket" name="harga_tiket">
+                                <label for="large2">Harga Tiket</label>
+                                <?php echo form_error('harga_tiket'); ?>
                             </div>
                             <div class="">
                                                     <div class="form-group">
@@ -104,6 +132,12 @@
         <script src="<?php echo base_url()?>assets_adm/js/core/source/AppVendor.js"></script>
         <script src="<?php echo base_url()?>assets_adm/js/core/demo/Demo.js"></script>
         <script src="<?php echo base_url()?>assets_adm/js/core/demo/DemoFormEditors.js"></script>
+         <script src="<?=base_url()?>assets/superadmin_assets/js/clockpicker/clockpicker.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.clockpicker').clockpicker();
+            });
+        </script>
         <!-- END JAVASCRIPT -->
     </body>
 </html>

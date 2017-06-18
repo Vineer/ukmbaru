@@ -10,6 +10,7 @@ class Superadmin extends CI_Controller {
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
+		$this->load->library('csvimport');
 	}
 
 	//------------------------------- this is functions for ukm------------------------------------------
@@ -77,7 +78,8 @@ class Superadmin extends CI_Controller {
 
         redirect('superadmin/Superadmin/Tambah_ukm','refresh');
 
-        }else{
+        } else {
+
         	$id_ukm			= $this->input->post('id_ukm');
 			$nama_ukm		= $this->input->post('nama_ukm');
 			$kategori		= $this->input->post('kategori');
@@ -89,7 +91,7 @@ class Superadmin extends CI_Controller {
 			$password		= $this->input->post('password');
 			$jenis_akses	= $this->input->post('jenis_akses');
 
-
+			
 						$config['upload_path']	= './assets/logoUkm/';
 						$config['allowed_types']= 'jpg|png|jpeg';
 						$this->load->library('Upload', $config);
@@ -114,18 +116,29 @@ class Superadmin extends CI_Controller {
 				            						
 				            );
 
-				            		 // print_r($isi);
-				            	  $this->M_admin->insert($isi,'ukm');
-				                  $this->M_admin->insert($data,'akun');
-				                  redirect('superadmin/Superadmin/Kelola_ukm','refresh');
-				            
-		                    
-				    }else{
-
-				    	$error = $this->upload->display_errors();
-			        	print_r($error);
-				    	
-				    }
+        	if ($this->M_admin->checkNmUkm($nama_ukm) == 0) {
+        		if ($this->M_admin->checkUsername($username) == 0) {
+        			$this->M_admin->insert($isi,'ukm');
+				    $this->M_admin->insert($data,'akun');
+				    redirect('superadmin/Superadmin/Kelola_ukm','refresh');
+        		} else {
+					$this->session->set_flashdata('error_input','Username Telah Di Gunakan');
+					$data['notif'] = $this->M_admin->notifEvent()->result();
+					$data['jmlnotif'] = $this->M_admin->jmlnotifEvent()->result();
+					$this->load->view('ukm/header',$data);
+					$this->load->view('ukm/Tambah_ukm');
+        		}
+			} else {
+				$this->session->set_flashdata('error_input','Nama UKM Telah Di Gunakan');
+				$data['notif'] = $this->M_admin->notifEvent()->result();
+				$data['jmlnotif'] = $this->M_admin->jmlnotifEvent()->result();
+				$this->load->view('ukm/header',$data);
+				$this->load->view('ukm/Tambah_ukm');
+        	} 
+	        	}else{
+					$error = $this->upload->display_errors();
+				    print_r($error);
+				}
 	        }
 	   }
 
@@ -562,6 +575,46 @@ function Tambah_kmhswaan() {
 		redirect('superadmin/Superadmin/Kelola_bagKmhswaan');
 
 	}
+
+	function ImportData() {
+		$this->load->view('ImportData');
+	}
+
+	function ImportCSV() {
+        $config['upload_path']  = './assets/csv/';
+        $config['allowed_types']= 'csv';
+        $config['max_size']     = '1000';
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload()) {
+            echo "<script>alert('Failed Upload!');window.location.href='".base_url()."superadmin/Superadmin/Kelola_mhs';</script>";
+        } else {
+            $file_data = $this->upload->data();
+            $file_path =  './assets/csv/'.$file_data['file_name'];
+            if ($this->csvimport->get_array($file_path)) {
+                $csv_array = $this->csvimport->get_array($file_path);
+                foreach ($csv_array as $row) {
+                    $insert_data = array(
+                                        'nim'            => $row['nim'],
+                                        'nama'           => $row['nama'],
+                                        'fakultas'         => $row['fakultas'],
+                                        'jurusan'            => $row['jurusan'],
+                                        'email'   => $row['email'],
+                                        'no_telp'           => $row['no_telp'],
+                                        'foto'       => $row['foto'],
+                                        'status'           => $row['status'],
+                                   );
+                    $this->db->insert('mahasiswa', $insert_data);
+                    //$this->DBAdmin->insert_csv($insert_data);
+                }
+                $this->session->set_flashdata('success', 'Csv Data Imported Succesfully');
+                redirect(base_url().'superadmin/Superadmin/Kelola_mhs');
+                //echo "<pre>"; print_r($insert_data);
+            } else {
+                $data['error'] = "Error occured";
+                $this->load->view('ImportData', $data);
+            }
+        }
+    }
 
 }
 // 	function TambahLpj() {

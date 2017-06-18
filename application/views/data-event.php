@@ -63,41 +63,48 @@
                 </div>
                 <!--title-->
 
-                <div class="row blog-main-wrap masonary ">
+                <div class="row blog-main-wrap">
+                    <div class="col-md-8 col-sm-8 left">
+                        <?php
+                        foreach ($event as $e) {
+                        ?>
+                        <div class="blog-list-wrap">
+                            <div class="blog-wrap">
+                                <figure class="post-thumbnail">
+                                    <a href="#" class="overlay image-effect">
+                                        <img src="<?=base_url()?>assets/event/<?=$e->poster?>" alt="Blog image">
+                                    </a>
+                                </figure>
+                                <h3 class="entry-title">
+                                   <a href="#"><?=$e->nama_event?></a>
+                                </h3>
+                                <!--title-->
 
-                    <?php  
-                        foreach($event as $value):
-                    ?>
-                    <div class="col-md-4 col-sm-4 blog-list ">
-                        <figure class="mb-20">
-                            <a href="#" class="overlay image-effect">
-                                <img src="<?php echo base_url() ?>/assets/event/<?php echo $value->poster; ?>" alt="">
-                            </a>
-                        </figure>
-                        <!--figure-->
+                                <div class="post-info">
+                                    <span class="post-author">
+                                       <i class="fa fa-user"></i> Posted by: <a href="#"><?=$e->penyelenggara?></a>
+                                    </span>
+                                    <span class="post-date">
+                                       <i class="fa fa-calendar"></i> Date: <a href="#"><?=$e->tanggal?></a>
+                                    </span>
+                                </div>
+                                <!--post info-->
 
-                        <div class="post-info">
-                            <span><?php echo $value->tanggal; ?></span>
-                            <span><?php echo $value->penyelenggara; ?></span>
-                            <span><?php echo 'Tempat : '.$value->tempat; ?></span>
+                                <div class="post-content">
+                                    <p>
+                                        <?=$e->konten?>
+                                    </p>
+                                </div>
+                                <!--post content-->
+
+                                <a href="<?=base_url()?>event/single_event/<?=$e->id_event?>" class="btn btn-outline-primary">Selengkapnya <i class="fa fa-long-arrow-right"></i></a>
+                                <a href="<?php echo site_url('beranda/join_panitia_event')?>" class="btn btn-outline-danger">Daftar Jadi Panitia <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
                         </div>
-                        <!--post info-->
-
-                        <h4 class="entry-title">
-                            <a href="#"><?php echo $value->nama_event; ?></a>
-                        </h4>
-                        <div class="post-content">
-                            <p>
-                                <?php echo substr($value->konten, 0,250); ?>
-                            </p>
-                        </div>
-                        <!--post cntent-->
-
-                        <a href="<?php echo site_url('event/single_event/').$value->id_event; ?>" class="btn btn-outline-primary">Selengkapnya <i class="fa fa-long-arrow-right"></i></a>
-                        <a href="<?php echo site_url('event/single_event/').$value->id_event; ?>" class="btn btn-outline-danger">Daftar Jadi Panitia <i class="fa fa-long-arrow-right"></i></a>
+                        <?php
+                        }
+                        ?>
                     </div>
-                    <!--single blog wrap-->
-                <?php endforeach; ?>
                 </div>
                 <!--blog wrap-->
 

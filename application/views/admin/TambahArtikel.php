@@ -20,7 +20,7 @@
                         <form class="form" role="form" method="post" action="<?php echo base_url()?>admin/UKM/SimpanArtikel">
                             
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control input-lg" id="penerbit" name="penerbit">
+                                <input type="text" class="form-control input-lg" id="penerbit" name="penerbit" value="<?=$penerbit['nama_ukm']?>" readonly>
                                 <label for="large2">Penerbit</label>
                                 <?php echo form_error('penerbit'); ?>
                             </div>
