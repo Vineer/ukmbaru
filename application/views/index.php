@@ -162,11 +162,14 @@
                     </div>
                     <!--title-->
 
+                            <?php foreach ($upcoming_event as $ue) {
+                                $today = date("Y-m-d");
+                                    $date = $ue->tanggal;
+                                    if ($date > $today) {
+                             ?>
                     <div class="col-md-11 offset-md-1 col-sm-11 offset-sm-1">
                         <div class="event-slider-wrap mb-8">
                             <ul class="event-slider">
-                            <?php foreach ($upcoming_event as $ue) {
-                             ?>
                                 <li>
                                     <figure>
                                         <span class="tag">UPCOMING</span>
@@ -207,11 +210,15 @@
                                     </div>
                                     <!--content-->
                                 </li>
-                                <?php }?>
                                 <!--single slide-->
                             </ul>
                         </div>
                         <!--event slider wrap-->
+                                <?php
+                                    } else {
+                                        echo '<center><p> </p></center>'; 
+                                    }
+                                 }?>
                     </div>
                 </div>
             </div>

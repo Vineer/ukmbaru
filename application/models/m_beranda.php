@@ -40,7 +40,7 @@
 			$this->db->select('*');
 			$this->db->from('event');
 			$this->db->where('status_approval','1');
-			$this->db->where('status_terlaksana','Belum');
+			// $this->db->where('status_terlaksana','Belum');
 			$this->db->order_by('tanggal','DESC');
 			$this->db->limit(3);
 			return $this->db->get()->result();
