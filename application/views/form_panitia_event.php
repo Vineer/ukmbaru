@@ -90,7 +90,7 @@
                                                               $nmfll = $this->db->query("select * FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
                                                         <?php foreach($nmfll->result_array() as $row) {?>
                                                            <b>Nama</b>
-                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama" value="<?php echo $row['nama'];?>">
+                                                            <input type="hidden" placeholder="Nama Mahasiswa *" name="nama" value="<?php echo $row['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                     </div>
