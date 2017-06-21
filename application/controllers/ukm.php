@@ -216,7 +216,9 @@
 
 	function input_data_bukti_transfer(){
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
+		$this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
+		$this->form_validation->set_rules('no_telp', 'no_telp', 'trim|required');
+		$this->form_validation->set_rules('email', 'email', 'trim|required');
         $this->form_validation->set_rules('kd_booking', 'Kode Booking', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
         	$this->load->view('form_bukti_transfer');
@@ -250,9 +252,9 @@
 						);
 			$exec = $this->m_ukm->input_data($data,'data_bukti_transfer');
 			if ($exec) {
-				$this->session->set_flashdata('pesan', array('message' => 'Berhasil melakukan konfirmasi bukti transfer!', 'class' => 'success', 'title' => 'Sukses!'));
-			}else{
 				$this->session->set_flashdata('pesan', array('message' => 'Gagal melakukan konfirmasi bukti transfer!', 'class' => 'danger', 'title' => 'Gagal!'));
+			}else{
+				$this->session->set_flashdata('pesan', array('message' => 'Berhasil melakukan konfirmasi bukti transfer!', 'class' => 'success', 'title' => 'Sukses!'));
 			}
 			redirect('beranda/bukti_transfer');
 		}

@@ -92,7 +92,7 @@
                                                            <b>Nama</b>
                                                            <input type="hidden" name="id_event" value="<?php echo $this->uri->segment(3); ?>">
                                                            <?php $usrnm = $this->session->userdata('username');
-                                                                 $nmfll = $this->db->query("select m.nama, m.nim FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
+                                                                 $nmfll = $this->db->query("select * FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
                                                             <?php foreach($nmfll->result_array() as $row) {?>
                                                                 <input type="text" name="nama" value="<?php echo $row['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
@@ -100,8 +100,18 @@
                                                         <div class="form-group">
                                                            <b>NIM</b>
                                                             <input type="text" name="nim" value="<?php echo $row['nim'];?>">
-                                                            <?php }?>
                                                             <?php echo form_error('nim'); ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                           <b>No Telp</b>
+                                                            <input type="text" name="no_telp" value="<?php echo $row['no_telp'];?>">
+                                                            <?php echo form_error('no_telp'); ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                           <b>Email</b>
+                                                            <input type="text" name="email" value="<?php echo $row['email'];?>">
+                                                            <?php }?>
+                                                            <?php echo form_error('email'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>Acara</b>
