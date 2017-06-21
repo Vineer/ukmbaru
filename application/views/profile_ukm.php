@@ -92,7 +92,7 @@
                     <div class="col-md-4 col-sm-4 blog-list ">
                         <figure class="mb-20">
                             <a href="#" class="overlay image-effect">
-                                <img src="<?php echo $u->logo_ukm?>" alt="">
+                                <img src="<?php echo base_url().'assets/logoUkm/'.$u->logo_ukm ?>" alt="">
                             </a>
                         </figure>
 

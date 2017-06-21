@@ -276,6 +276,10 @@
                                 ?>
                                     <a class="btn cart-btn rounded-0">Acara Sudah Lewat</a>
                                 <?php
+                                    }else if ($date <= $today){
+                                ?>
+                                    <a class="btn cart-btn rounded-0">Acara Sedang Berlangsung</a>
+                                <?php
                                     }else{
                                 ?>
                                     <a href="<?php echo base_url().'beranda/pemesanan_tiket_beranda/'.$el->id_event; ?>" class="btn cart-btn rounded-0">

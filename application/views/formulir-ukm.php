@@ -86,20 +86,25 @@
                                                     <div class="col-md-8 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Nama</b>
-                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama">
+                                                           <?php $usrnm = $this->session->userdata('username');
+                                                                 $nmfll = $this->db->query("select * FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
+                                                            <?php foreach($nmfll->result_array() as $row) {?>
+                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama" value="<?php echo $row['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>NIM</b>
-                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim">
+                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim" value="<?php echo $row['nim'];?>">
+                                                            <?php }?>
                                                             <?php echo form_error('nim'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>Fakultas</b>
-                                                           <select name="fakultas">
+                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim" value="<?php echo $row['fakultas'];?>">
+                                                           <!-- <select name="fakultas">
                                                                <option>FIT</option>
                                                                <option>FTE</option>
-                                                           </select>
+                                                           </select> -->
                                                            <?php echo form_error('fakultas'); ?>
                                                         </div>
                                                         <div class="form-group">
@@ -112,17 +117,17 @@
                                                         </div>
                                                         <div class="form-group">
                                                            <b>Jurusan</b>
-                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan">
+                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan" value="<?php echo $row['jurusan'];?>">
                                                             <?php echo form_error('jurusan'); ?>
                                                         </div> 
                                                         <div class="form-group">
                                                            <b>No. HP</b>
-                                                            <input type="text" placeholder="Nomor Handphone *" name="nohp">
+                                                            <input type="text" placeholder="Nomor Handphone *" name="nohp" value="<?php echo $row['no_telp'];?>">
                                                             <?php echo form_error('nohp'); ?>
                                                         </div>  
                                                         <div class="form-group">
                                                            <b>Email</b>
-                                                            <input type="text" placeholder="example@email.com *" name="email">
+                                                            <input type="text" placeholder="example@email.com *" name="email" value="<?php echo $row['email'];?>">
                                                             <?php echo form_error('email'); ?>
                                                         </div> 
                                                         <div class="form-group">

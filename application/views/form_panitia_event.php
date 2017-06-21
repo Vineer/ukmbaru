@@ -35,6 +35,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/style.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>" />
 
+    <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js')?>"></script>
+
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -84,15 +86,19 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
+                                                        <?php $usrnm = $this->session->userdata('username');
+                                                              $nmfll = $this->db->query("select * FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
+                                                        <?php foreach($nmfll->result_array() as $row) {?>
                                                            <b>Nama</b>
-                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama">
+                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama" value="<?php echo $row['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                     </div>
+                                                    <?php }?>
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>NIM</b>
-                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim">
+                                                            <input type="text" placeholder="NIM Mahasiswa *" name="nim" value="<?php echo $row['nim'];?>">
                                                             <?php echo form_error('nim'); ?>
                                                         </div>
                                                     </div>
@@ -115,17 +121,18 @@
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Fakultas</b>
-                                                           <select name="fakultas">
+                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan" value="<?php echo $row['fakultas'];?>">
+                                                           <!-- <select name="fakultas">
                                                                <option>FIT</option>
                                                                <option>FTE</option>
-                                                           </select>
+                                                           </select> -->
                                                            <?php echo form_error('fakultas'); ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Jurusan</b>
-                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan">
+                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan" value="<?php echo $row['jurusan'];?>">
                                                             <?php echo form_error('jurusan'); ?>
                                                         </div>
                                                     </div>
@@ -134,28 +141,38 @@
                                                            <b>Divisi</b>
                                                             <div class="col-md-8">
                                                                     <div class="i-checks">
-                                                                            <input type="checkbox" name="divisi" value="acara"> <i></i> Acara &nbsp&nbsp&nbsp
-                                                                            <input type="checkbox" name="divisi" value="logistik"> <i></i> Logistik &nbsp&nbsp&nbsp
-                                                                            <input type="checkbox" name="divisi" value="dokumentasi"> <i></i> Publikasi & Dokumentasi &nbsp&nbsp&nbsp
-                                                                            <input type="checkbox" name="divisi" value="keamanan"> <i></i> Keamanan &nbsp&nbsp&nbsp
-                                                                            <input type="checkbox" name="divisi" value="konsumsi"> <i></i> Konsumsi &nbsp&nbsp&nbsp
-                                                                            <input type="checkbox" name="divisi" value="sponsorship"> <i></i> Sponsorship &nbsp&nbsp&nbsp
+                                                                        <input type="checkbox" name="divisi" id="divisi" value="acara"> <i></i> Acara &nbsp&nbsp&nbsp
+                                                                        <input type="checkbox" name="divisi" id="divisi" value="logistik"> <i></i> Logistik &nbsp&nbsp&nbsp
+                                                                        <input type="checkbox" name="divisi" id="divisi" value="dokumentasi"> <i></i> Publikasi & Dokumentasi &nbsp&nbsp&nbsp
+                                                                        <input type="checkbox" name="divisi" id="divisi" value="keamanan"> <i></i> Keamanan &nbsp&nbsp&nbsp
+                                                                        <input type="checkbox" name="divisi" id="divisi" value="konsumsi"> <i></i> Konsumsi &nbsp&nbsp&nbsp
+                                                                        <input type="checkbox" name="divisi" id="divisi" value="sponsorship"> <i></i> Sponsorship &nbsp&nbsp&nbsp
                                                                     </div>
                                                                     <?php echo form_error('divisi'); ?>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <script>
+                                                         $(':checkbox').click(function () {
+                                                             var arr = $('#divisi:checked').map(function () {
+                                                                 return this.value;
+                                                             }).get();
+                                                             document.getElementById("divget").value = arr;
+                                                             console.log(arr);
+                                                         });
+                                                    </script>
+                                                    <input type="text" name="divget" id="divget">
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>No. HP</b>
-                                                            <input type="text" placeholder="Nomor Handphone *" name="nohp">
+                                                            <input type="text" placeholder="Nomor Handphone *" name="nohp" value="<?php echo $row['no_telp'];?>">
                                                             <?php echo form_error('nohp'); ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Email</b>
-                                                            <input type="text" placeholder="example@email.com *" name="email">
+                                                            <input type="text" placeholder="example@email.com *" name="email" value="<?php echo $row['email'];?>">
                                                             <?php echo form_error('email'); ?>
                                                         </div>
                                                     </div>

@@ -4,7 +4,6 @@
 
 <!-- Mirrored from themes.webavenue.com.au/enstruct/html/22-enstruct-checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Apr 2017 14:07:49 GMT -->
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +34,8 @@
     <!-- Main css -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/style.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>" />
+
+    <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js')?>"></script>
 
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
