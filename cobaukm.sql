@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2017 at 09:48 AM
+-- Generation Time: Jun 21, 2017 at 12:26 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -109,7 +109,8 @@ INSERT INTO `data_bukti_transfer` (`kd_bukti`, `kd_booking`, `nama_mhs`, `nim`, 
 (4, '0', 'resita tri sukmawati', 6701140223, 'skema relasi.jpg'),
 (5, '2324', 'res', 6701148567, 'ClassDiagram1tety (1) (1).png'),
 (6, '5', 'tety handayani', 6701140076, 'UKM KBMS.jpg'),
-(7, '3', 'tety handayani', 6701140223, 'UKM KBMS.jpg');
+(7, '3', 'tety handayani', 6701140223, 'UKM KBMS.jpg'),
+(8, '9', 'Resita Tri Sukmawati', 6701140223, 'cv-Aksara_Telkom.jpg');
 
 -- --------------------------------------------------------
 
@@ -145,7 +146,9 @@ INSERT INTO `data_panitia` (`kd_panitia`, `nama_mhs`, `nim_mhs`, `ukm_pilihan`, 
 (5, 'tety handayani', '6701140076', 'UKM Bola', 'FIT', 'MI', 'konsumsi', '0815264356', 'tety@gmail.com', 'bvbvbv', 'Aksara Telkom.jpg', 'Aksara Telkom.jpg', ''),
 (6, 'tety handayani', '6701140076', 'UKM Bola', 'FIT', 'mi', 'logistik', '0815264356', 'resita@gmail.com', 'asa', 'Alek Rumah Gadang.jpg', 'Alek Rumah Gadang.jpg', ''),
 (7, 'tety handayani', '6701140076', 'Alek Rumah Gadang 2017', 'FIT', 'MI', 'acara', '0815264356', 'resita@gmail.com', 'asasas', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', ''),
-(9, 'bayu', '6701140076', 'Alek Rumah Gadang 2017', 'FIT', 'MI', 'logistik', '0815264356', 'bsapp@gmail.com', 'asasaksjkhdwgdyqwgdtyqrd', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', '');
+(9, 'bayu', '6701140076', 'Alek Rumah Gadang 2017', 'FIT', 'MI', 'logistik', '0815264356', 'bsapp@gmail.com', 'asasaksjkhdwgdyqwgdtyqrd', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', 'web-firefly-wallpaper-fireflyws-lomography-hangar-nature-wallpapers.jpg', ''),
+(12, 'Resita Tri Sukmawati', '6701140223', 'Pestapora', 'FIT', 'MI', 'acara,logistik,dokumentasi', '081333840010', 'resita@gmail.com', 'Isenglah', 'cv-59953_(E_BISNIS)_-_Analisis_Pelanggaran_E_Bisnis_PT_PLN.docx', 'cv-Aksara_Telkom.jpg', ''),
+(13, 'Resita Tri Sukmawati', '6701140223', 'Pestapora', 'FIT', 'MI', 'konsumsi,sponsorship', '081333840010', 'resita@gmail.com', 'Teslah', 'cv-59953_(E_BISNIS)_-_Analisis_Pelanggaran_E_Bisnis_PT_PLN.docx', 'cv-Aksara_Telkom.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -213,7 +216,8 @@ INSERT INTO `data_pesan_tiket` (`kd_booking`, `nama_mhs`, `nim`, `acara`, `jml_t
 (9, 'Resita Tri Sukmawati', '6701140223', 'Gala Abhinaya', '3', 0, '', 0, '', 0),
 (10, 'Teti Handayani', '6701140076', 'Dies Natalis XXIV - Calonarang', '2', 0, '', 0, '', 0),
 (11, 'Teti Handayani', '6701140076', 'Gala Abhinaya', '1', 0, '', 0, '', 0),
-(13, 'Teti Handayani', '6701140076', 'Dies Natalis XXIV - Calonarang', '4', 200000, '', 0, '', 235243);
+(13, 'Teti Handayani', '6701140076', 'Dies Natalis XXIV - Calonarang', '4', 200000, '', 0, '', 235243),
+(16, 'Resita Tri Sukmawati', '6701140223', 'Dies Natalis XXIV - Calonarang', '2', 100000, 'Lunas', 0, '', 235243);
 
 -- --------------------------------------------------------
 
@@ -247,7 +251,8 @@ INSERT INTO `event` (`id_event`, `nama_event`, `tanggal`, `tempat`, `waktu`, `se
 (235244, 'Pagelaran Seni dan Budaya Betawie', '2017-04-02', 'Aula FIT', '19:00:00', '00:00:00', 30000, 'UKM Betawie', 'UKM_Betawie3.jpg', '<div>Panggilan untuk abang mpok semuanyeeeeee!!!!!!!!! UKM Betawie telkom University dengan bangga nampilin \"PAGELARAN SENI &nbsp;DAN BUDAYA BETAWIE 2016\"</div><div>Hari/Tanggal : Sabtu 2 april 2016</div><div>Tempat : Aula FIT</div><div>Ebuset masa iya kaga dateng !! Kapan lagi nih abang mpok bisa nonton&nbsp;</div><div>pertunjukan nyang megah tentang kebudayaan betawi di tanah sunda ini.</div><div>Nyokk dahh semuanye datang dan ramein nihh acara Budaya Betawi tercinte.&nbsp;</div><div>Aye jamin, kaga bakal ada yang nyesel dahh</div><div>Lebih lengkapnye lagi, lu pada bisa tanya tanya nih ke orang ini :</div><div>Id line : widyalifianti / 089679931848</div><div>#Pagelaranbetawie2016</div><div>#betawiepunyagaye</div>', NULL, 1, 'Sudah', 2),
 (235245, 'Alek Rang Minang feat Ajo Buset', '2017-04-16', 'Aula Fakultas Komunikasi Bisnis Telkom University', '19:00:00', '00:00:00', 25000, 'UKM Rumah Gadang', 'rumah_gadang.jpg', '<div>Iko nyo nan dinanti nanti kini lah tibo,</div><div>Alek bukan sumbarang alek, aleknyo bujang jo gadih minang ditanah rantau</div><div>RUMAH GADANG TELKOM UNIVERSITY Proudly Present</div><div>Grand Launching Rumah Gadang Telkom University ALEK RANG MINANG \"Maluruihkan Bandang Nan Kusuik\" Ft. Ajo Buset</div><div>Drama, Tari, Randai, Silek, dan musik tradisional Minangkabau dikemas menjadi sebuah pertunjukan menarik dan sangat ditunggu.</div><div>Hari: Sabtu, 16 April 2016</div><div>Tempat: Aula Fakultas Komunikasi Bisnis, Telkom University</div><div>Note the date from NOW!</div><div>#ARM2016</div><div>#RumahGadangTelkom</div>', NULL, 1, 'Sudah', 0),
 (235246, 'Gala Abhinaya', '2017-04-26', 'Lapangan Parkir Telkom Convention Hall', '15:00:00', '00:00:00', 75000, 'UKM Band', 'Ukm_band.jpg', '<div>UKM BAND Telkom University</div><div>Mempersembahkan</div><div>GALA ABHINAYA</div><div>\"Satukan Budaya dengan Irama\"</div><div>Dibintangi oleh :</div><div>- ALEXA</div><div>- Barry Likumahuwa \"Feel Good Collective\"</div><div>- \"Arumba\" by Saung Angklung Udjo</div><div>Penampilan Tradisional oleh :</div><div>- UKM Permala (Lampung)</div><div>- UKM KBMS (Sulawesi)</div><div>- UKM Bali Widyacana Murti</div><div>Penampilan Band oleh :</div><div>- SEREVINA &amp; friends</div><div>- Green Tea Latte</div><div>dan kunjungi juga Culinary Festival!!</div><div>Dilaksanakan pada :</div><div>April 26th, 2015</div><div>di Lapangan Parkir Telkom Convention Hall</div><div>Jl.Telekomunkasi no.1, Dayeuhkolot, Bandung</div><div>Mulai Pukul :</div><div>15.00 WIB</div><div>Tiket :</div><div>Presale 1 : IDR 28.000 (21 Mar - 5 Apr 2015)</div><div>Presale 2 : IDR 38.000 (6 Apr - 16 Apr 2015)</div><div>OTS : IDR 50.000</div><div>Contact Person :</div><div>- Untuk Tiket :</div><div>Muhe : 0853 5290 9966</div><div>Eddy : 0857 3970 6333&nbsp;</div><div>- Untuk Event :</div><div>Arvel : 0813 1850 6384</div><div>Ilham : 0812 90 575 909</div><div>Stand Tiket :</div><div>Kantin TES (Business Center)</div><div>Senin - Jumat, 12.00 - 16.00 WIB</div><div>Nikmatilah atmosfir dari kebudayaan tradisonal Indonesia yang dipadukan oleh modernisasi, hanya di GALA ABHINAYA!</div><div>Twitter &amp; Instagram :</div><div>@UKMBANDUNITEL</div>', NULL, 1, 'Belum', 0),
-(235248, 'Alek Rumah Gadang 2017', '2017-06-20', 'Gedung Serba Guna Telkom', '14:00:00', '15:00:00', 35000, 'UKM Rumah Gadang', 'Alek_Rumah_Gadang6.jpg', '<div>[ALEK RUMAH GADANG 2017]</div><div><br></div><div>Assalamualaikum..</div><div>Hallo uda uni Penampil ARG\'17</div><div>Kita akan mengadakan latihan gabungan pertama seluruh PENAMPIL ALEK RUMAH GADANG 2017 :&nbsp;</div><div><br></div><div>Hari/ Tanggal: Rabu,25 Januari 2017</div><div>Tempat &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: GSG</div><div>Jam &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 18.00</div><div><br></div><div>*seluruh penampil wajib untuk hadir di latihan pertama ini.&nbsp;</div><div><br></div><div>Atas perhatiannya, kami ucapkan Terima Kasih.</div><div><br></div><div>\"satu orang bisa menjadi bahan penting dalam sebuah tim, namun satu orang tidak dapat membuat sebuah tim - Kareem Abdul-Jabbar\"</div><div><br></div><div>#AlekRumahGadang2017</div><div>#RumahGadangTel-U</div>', 1236, 0, '', 0);
+(235248, 'Alek Rumah Gadang 2017', '2017-06-20', 'Gedung Serba Guna Telkom', '14:00:00', '15:00:00', 35000, 'UKM Rumah Gadang', 'Alek_Rumah_Gadang6.jpg', '<div>[ALEK RUMAH GADANG 2017]</div><div><br></div><div>Assalamualaikum..</div><div>Hallo uda uni Penampil ARG\'17</div><div>Kita akan mengadakan latihan gabungan pertama seluruh PENAMPIL ALEK RUMAH GADANG 2017 :&nbsp;</div><div><br></div><div>Hari/ Tanggal: Rabu,25 Januari 2017</div><div>Tempat &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: GSG</div><div>Jam &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 18.00</div><div><br></div><div>*seluruh penampil wajib untuk hadir di latihan pertama ini.&nbsp;</div><div><br></div><div>Atas perhatiannya, kami ucapkan Terima Kasih.</div><div><br></div><div>\"satu orang bisa menjadi bahan penting dalam sebuah tim, namun satu orang tidak dapat membuat sebuah tim - Kareem Abdul-Jabbar\"</div><div><br></div><div>#AlekRumahGadang2017</div><div>#RumahGadangTel-U</div>', 1236, 1, '', 0),
+(235249, 'Pestapora', '2017-06-30', 'Alun-alun', '12:00:00', '14:00:00', 50000, 'UKM Rumah Gadang', 'profil-ukm51.jpg', 'Tes', 1236, 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -263,7 +268,7 @@ CREATE TABLE `feedback` (
   `kritik` varchar(500) NOT NULL,
   `saran` varchar(500) NOT NULL,
   `nim` bigint(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `feedback`
@@ -273,7 +278,7 @@ INSERT INTO `feedback` (`id_feedback`, `nama`, `email`, `nama_event`, `kritik`, 
 (1, 'resita', 'resita@gmail.com', '', 'bagus', 'good', NULL),
 (2, 'rega', 'rega@gmail.com', '', 'jelek', 'ngga', NULL),
 (3, 'Teti Handayani', 'tetihandayani51@gmail.com', '', 'acara kurang menarik', 'buat konsep lebih bagus lagi', 6701140076),
-(4, 'res', 'resita@gmail.com', '', 'asas', 'qwqwq', 235243);
+(4, 'res', 'resita@gmail.com', 'Dies Natalis XXIV - Calonarang', 'asas', 'qwqwq', 235243);
 
 -- --------------------------------------------------------
 
@@ -593,12 +598,12 @@ ALTER TABLE `artikel`
 -- AUTO_INCREMENT for table `data_bukti_transfer`
 --
 ALTER TABLE `data_bukti_transfer`
-  MODIFY `kd_bukti` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kd_bukti` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `data_panitia`
 --
 ALTER TABLE `data_panitia`
-  MODIFY `kd_panitia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `kd_panitia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `data_pengurus`
 --
@@ -608,12 +613,12 @@ ALTER TABLE `data_pengurus`
 -- AUTO_INCREMENT for table `data_pesan_tiket`
 --
 ALTER TABLE `data_pesan_tiket`
-  MODIFY `kd_booking` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `kd_booking` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235249;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235250;
 --
 -- AUTO_INCREMENT for table `feedback`
 --
@@ -653,7 +658,7 @@ ALTER TABLE `proposal`
 -- AUTO_INCREMENT for table `ukm`
 --
 ALTER TABLE `ukm`
-  MODIFY `id_ukm` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1240;
+  MODIFY `id_ukm` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1239;
 --
 -- Constraints for dumped tables
 --
