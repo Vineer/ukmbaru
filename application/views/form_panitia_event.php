@@ -90,7 +90,7 @@
                                                               $nmfll = $this->db->query("select * FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
                                                         <?php foreach($nmfll->result_array() as $row) {?>
                                                            <b>Nama</b>
-                                                            <input type="hidden" placeholder="Nama Mahasiswa *" name="nama" value="<?php echo $row['nama'];?>">
+                                                            <input type="text" placeholder="Nama Mahasiswa *" name="nama" value="<?php echo $row['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                     </div>
@@ -121,7 +121,7 @@
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>Fakultas</b>
-                                                            <input type="text" class="form-control" placeholder="Jurusan *" name="jurusan" value="<?php echo $row['fakultas'];?>">
+                                                            <input type="text" class="form-control" placeholder="fakultas *" name="fakultas" value="<?php echo $row['fakultas'];?>">
                                                            <!-- <select name="fakultas">
                                                                <option>FIT</option>
                                                                <option>FTE</option>
@@ -161,7 +161,7 @@
                                                              console.log(arr);
                                                          });
                                                     </script>
-                                                    <input type="text" name="divget" id="divget">
+                                                    <input type="hidden" name="divget" id="divget">
                                                     <div class="col-md-12 col-sm-8">
                                                         <div class="form-group">
                                                            <b>No. HP</b>

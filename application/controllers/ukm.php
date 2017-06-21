@@ -113,7 +113,7 @@
 	        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
 	        $this->form_validation->set_rules('fakultas', 'Fakultas', 'trim|required');
 	        $this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required');
-	        $this->form_validation->set_rules('divisi', 'Divisi', 'trim|required');
+	        $this->form_validation->set_rules('divget', 'Divisi', 'trim|required');
 	        $this->form_validation->set_rules('nohp', 'No Telepon', 'trim|required');
 	        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 	        $this->form_validation->set_rules('motivasi', 'Motivasi', 'trim|required');
@@ -125,7 +125,7 @@
 				$ukm = $this->input->post('data_panitia');
 				$fakultas = $this->input->post('fakultas');
 				$jurusan = $this->input->post('jurusan');
-				$divisi = $this->input->post('divisi');
+				$divisi = $this->input->post('divget');
 				$nohp = $this->input->post('nohp');
 				$email = $this->input->post('email');
 				$motivasi = $this->input->post('motivasi');
