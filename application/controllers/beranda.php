@@ -7,6 +7,8 @@ class beranda extends CI_Controller {
 		parent::__construct();
 		$this->load->model('m_beranda');
 		$this->load->model('m_admin');
+		$this->load->model('m_ukm');
+		
 	}
 	public function index()
 	{
@@ -21,6 +23,8 @@ class beranda extends CI_Controller {
 		$data['event_lainnya'] = $this->m_beranda->get_another_event();
 		$this->load->view('index',$data);
 		//print_r($id_akun);
+		// echo(CURDATE());
+		// print_r($data['upcoming_event']);
 	}
 
 	public function artikel(){
@@ -54,6 +58,8 @@ class beranda extends CI_Controller {
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
+		$id_akun = $this->session->userdata['nim'];
+		$data['mahasiswa'] =$this->m_admin->profil($id_akun)->row_array();
 		$table = 'ukm';
 		$tab = 'artikel';
 		$tanggal = 'tgl_terbit';
@@ -62,13 +68,15 @@ class beranda extends CI_Controller {
 		$data['artikel'] = $this->m_beranda->get_data($where,$tab)->result();
 		$data['current_artikel'] = $this->m_beranda->get_current_data($tab,$tanggal);
 		$data['upcoming_event'] = $this->m_beranda->get_current_event();
-		$where2 = array('id_artikel'=>$kd_artikel, 'jenis'=>'artikel');
-		$data['komen'] = $this->m_beranda->get_komen($where2,'komentar')->result();
+		// $where2 = array('id_artikel'=>$kd_artikel, 'jenis'=>'artikel');
+		$id_artikel	= $kd_artikel;
+		$data['komen'] = $this->m_beranda->get_komen_artikel($id_artikel)->result();
+		// $data['komen'] = $this->m_beranda->get_komen($where2,'komentar')->result();
 		$data['jmlkomen'] = $this->db->select('count(id_komentar) as jmlkomen')->where('id_artikel',$kd_artikel)->where('jenis','artikel')->get('komentar')->row();
 		$data['idevent'] = $kd_artikel;
 		$this->load->view('artikel_detail',$data);
 		// echo $kd_artikel;
-		// print_r($data['artikel']);
+		
 	}
 
 	function komentar($id) {
@@ -76,18 +84,14 @@ class beranda extends CI_Controller {
 			redirect('beranda/sign_in');
 		}
 		$isi		= $this->input->post('isi');
-		$nama		= $this->input->post('nama');
-		$email		= $this->input->post('email');
-		$website	= $this->input->post('website');
+		$nim		= $this->input->post('nama');
 		$waktu		= date("F j, Y, g:i a"); 
 		$isi		= array(
 			'jenis'			=> 'artikel',
 			'id_artikel'	=> $id,
-			'nama_komentar'	=> $nama,
-			'email'			=> $email,
-			'website'		=> $website,
 			'isi_komentar'	=> $isi,
-			'waktu'			=> $waktu
+			'waktu'			=> $waktu,
+			'nim'	=> $nim
 		);
 		$this->m_beranda->insert('komentar', $isi);
 		redirect(base_url().'beranda/artikel_detail/'.$id);
@@ -158,6 +162,8 @@ class beranda extends CI_Controller {
 		date_default_timezone_set('Asia/Jakarta');
 		$tanggal 			= date('Y-m-d');
 		$data['event']		= $this->db->query("select * from event where tanggal >= '$tanggal'")->result();
+		$nim =  $this->session->userdata('nim');
+		$data['mhs'] =$this->m_ukm->get_mahasiswa($nim)->row_array();
 		$this->load->view('form_panitia_event', $data);
 	}
 	public function hasil_pengumuman(){
@@ -176,7 +182,10 @@ class beranda extends CI_Controller {
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
-		$data['acara'] = $this->db->query("select * from event where status_terlaksana = 'Belum' ");
+		// $data['acara'] = $this->db->query("select * from event where status_terlaksana = 'Belum' ");
+		$data['kodeunik'] = $this->m_ukm->buat_kode();
+		$username =  $this->session->userdata('username');
+		$data['mhs'] =$this->m_ukm->get_mhs_un($username)->row_array();
 		$this->load->view('form_pesan_tiket',$data);
 	}
 
@@ -200,9 +209,9 @@ class beranda extends CI_Controller {
 	function tampilNamaPemesan() {
 		$output 				= '';
 		$id 					= $this->input->post('id');
-		$ambil 					= $this->db->query("select nama_mhs from data_pesan_tiket where kd_booking = $id")->row_array();
+		$ambil 					= $this->db->query("select * FROM mahasiswa m inner join data_pesan_tiket a on(m.nim=a.nim) WHERE kd_booking=$id")->row_array();
 		if ($id != '') {
-			$output 			.= "<input type='text' placeholder='Nama Mahasiswa *' name='nama' value='".$ambil['nama_mhs']."' readonly>";
+			$output 			.= "<input type='text' placeholder='Nama Mahasiswa *' name='nama' value='".$ambil['nama']."' readonly>";
 		}
 		echo $output;
 	}

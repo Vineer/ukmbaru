@@ -163,9 +163,6 @@
                     <!--title-->
 
                             <?php foreach ($upcoming_event as $ue) {
-                                $today = date("Y-m-d");
-                                    $date = $ue->tanggal;
-                                    if ($date > $today) {
                              ?>
                     <div class="col-md-11 offset-md-1 col-sm-11 offset-sm-1">
                         <div class="event-slider-wrap mb-8">
@@ -215,10 +212,10 @@
                         </div>
                         <!--event slider wrap-->
                                 <?php
-                                    } else {
-                                        echo '<center><p> </p></center>'; 
+                                    // } else {
+                                    //     echo date('Y-m-d'); 
                                     }
-                                 }?>
+                                 ?>
                     </div>
                 </div>
             </div>
@@ -276,9 +273,9 @@
                                 ?>
                                     <a class="btn cart-btn rounded-0">Acara Sudah Lewat</a>
                                 <?php
-                                    }else if ($date <= $today){
+                                    }else if ($date == $today){
                                 ?>
-                                    <a class="btn cart-btn rounded-0">Acara Sedang Berlangsung</a>
+                                    <a class="btn cart-btn rounded-0">Acara Sedang Terlaksana</a>
                                 <?php
                                     }else{
                                 ?>

@@ -40,13 +40,13 @@
 											?>
 											<tr class="gradeX">
 												<td><?php echo $i?></td>
-												<td><?php echo $a->nim_mhs ?></td>
-												<td><?php echo $a->nama_mhs ?></td>
+												<td><?php echo $a->nim?></td>
+												<td><?php echo $a->nama ?></td>
 												<td><?php echo $a->ukm_pilihan ?></td>
 												<td><?php echo $a->fakultas ?></td>
 												<td><?php echo $a->jurusan ?></td>
 												<td><?php echo $a->divisi ?></td>
-												<td><?php echo $a->no_hp ?></td>
+												<td><?php echo $a->no_telp ?></td>
 												<td><?php echo $a->email ?></td>
 												<td><?php echo $a->motivasi ?></td>
 												<td>

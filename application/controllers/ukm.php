@@ -118,19 +118,16 @@
 	        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 	        $this->form_validation->set_rules('motivasi', 'Motivasi', 'trim|required');
 	        if ($this->form_validation->run() == FALSE) {
+	        	//$nim =  $this->session->userdata('nim');
+				//$data['mhs'] =$this->m_ukm->get_mahasiswa($nim)->row_array();
 	        	$this->load->view('form_panitia_event');
 	        }else{
-				$nama = $this->input->post('nama');
 				$nim = $this->input->post('nim');
 				$ukm = $this->input->post('data_panitia');
-				$fakultas = $this->input->post('fakultas');
-				$jurusan = $this->input->post('jurusan');
 				$divisi = $this->input->post('divget');
-				$nohp = $this->input->post('nohp');
-				$email = $this->input->post('email');
 				$motivasi = $this->input->post('motivasi');
 				$cv = $_FILES['cv']['name'];
-				$foto = $_FILES['foto-profil']['name'];
+				//$data['mhs'] =$this->m_ukm->get_mahasiswa($nim)->row_array();
 
 				if ($cv!='') {
 					// $image_path = dirname($_SERVER["SCRIPT_FILENAME"])."/foto/";
@@ -164,17 +161,11 @@
 				}
 
 				$data = array(
-								'nama_mhs'=>$nama,
-								'nim_mhs'=>$nim,
 								'ukm_pilihan'=>$ukm,
-								'fakultas'=>$fakultas,
-								'jurusan'=>$jurusan,
 								'divisi'=>$divisi,
-								'no_hp'=>$nohp,
-								'email'=>$email,
 								'motivasi'=>$motivasi,
 								'cv'=>$cv,
-								'foto'=>$foto
+								'nim'=>$nim
 							);
 				$exec = $this->m_ukm->input_data($data,'data_panitia');
 					$this->session->set_flashdata('pesan', array('message' => 'Berhasil mendaftar menjadi panitia!', 'class' => 'success', 'title' => 'Sukses!'));
@@ -184,21 +175,24 @@
 //---------------------------------function for pemesanan tiket-----------------------------------------------
 
 		function input_pemesanan_tiket(){
-			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+			// $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 	        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
 	        $this->form_validation->set_rules('acara', 'Acara', 'trim|required');
 	        $this->form_validation->set_rules('jml_tiket', 'Jumlah Tiket', 'trim|required|numeric');
 	        if ($this->form_validation->run() == FALSE) {
+				// $a['kodeunik'] = $this->m_ukm->buat_kode();
 	        	$this->load->view('form_pesan_tiket');
 	        }else{
-				$nama = $this->input->post('nama');
+				// $nama = $this->input->post('nama');
+				$kd_booking = $this->input->post('kd_ev');
 				$nim = $this->input->post('nim');
 				$acara = $this->input->post('acara');
 				$jml_tiket = $this->input->post('jml_tiket');
 				$total_harga = preg_replace("/[^0-9]/","",$this->input->post('total_harga'));
 				$id_ukm = $this->db->query("select id_event from event where nama_event = '$acara'")->row_array();
 				$data = array(
-								'nama_mhs'=>$nama,
+								// 'nama'=>$nama,
+								'kd_booking'=>$kd_booking,
 								'nim'=>$nim,
 								'acara'=>$acara,
 								'jml_tiket'=>$jml_tiket,
@@ -208,23 +202,22 @@
 				$exec = $this->m_ukm->input_data($data,'data_pesan_tiket');
 				$cek = $this->db->order_by('kd_booking desc')->limit(1)->get('data_pesan_tiket')->row();
 				$ambildata = $this->db->query("select a.nama_cp, a.no_rekening, a.bank from ukm a join event b on a.id_ukm = b.id_ukm where b.nama_event = '$acara'")->row_array();
-				$this->session->set_flashdata('pesan', array('message' => 'Kode booking anda: '.$cek->kd_booking.' <br> Nama pemesan tiket: '.$cek->nama_mhs.' <br> Jumlah tiket yang dipesan: '.$cek->jml_tiket.' <br> Harap membayar sesuai dengan harga tiket <br> No Rek '.$ambildata['bank'].' : '.$ambildata['no_rekening'].' (a/n '.$ambildata['nama_cp'].') <br> Atau bisa membayar langsung dengan menghubungi id line: aahaw <br><br> NB: Harap capture pesan ini.', 'class' => 'success', 'title' => 'Berhasil memesan tiket! <br>'));
+				// $ambildata = $this->db->query("select a.nama_cp, a.no_rekening, a.bank from ukm a join event b on (a.nama_ukm = b.penyelenggara) WHERE a.nama_ukm='$nama_ukm'")->row_array();
+				$this->session->set_flashdata('pesan', array('message' => 'Kode booking anda: '.$cek->kd_booking.' <br> NIM pemesan tiket: '.$cek->nim.' <br> Jumlah tiket yang dipesan: '.$cek->jml_tiket.' <br> Harap membayar sesuai dengan harga tiket <br> No Rek '.$ambildata['bank'].' : '.$ambildata['no_rekening'].' (a/n '.$ambildata['nama_cp'].') <br> Atau bisa membayar langsung dengan menghubungi id line: aahaw <br><br> NB: Harap capture pesan ini.', 'class' => 'success', 'title' => 'Berhasil memesan tiket! <br>'));
 				$this->load->view('form_pesan_tiket');
 			}
 		}
 //---------------------------------------function for Booking Tiket---------------------------------------
 
 	function input_data_bukti_transfer(){
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
-		$this->form_validation->set_rules('no_telp', 'no_telp', 'trim|required');
-		$this->form_validation->set_rules('email', 'email', 'trim|required');
+		// $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
         $this->form_validation->set_rules('kd_booking', 'Kode Booking', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
         	$this->load->view('form_bukti_transfer');
         }else{
 			$kd_booking = $this->input->post('kd_booking');
-			$nama = $this->input->post('nama');
+			// $nama = $this->input->post('nama');
 			$nim = $this->input->post('nim');
 			$foto = $_FILES['foto-profil']['name'];
 
@@ -246,7 +239,7 @@
 
 			$data = array(
 							'kd_booking'=>$kd_booking,
-							'nama_mhs'=>$nama,
+							// 'nama_mhs'=>$nama,
 							'nim'=>$nim,
 							'foto'=>$foto
 						);

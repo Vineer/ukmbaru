@@ -55,6 +55,12 @@
                                 <span class="title">Kelola Feedback</span>
                             </a>
                         </li><!--end /menu-li -->
+                        <li>
+                            <a href="<?php echo base_url()?>admin/UKM/Pengumuman" >
+                                <div class="gui-icon"><i style="font-size:18px;" class="fa fa-book""></i></div>
+                                <span class="title">Kelola Pengumuman</span>
+                            </a>
+                        </li><!--end /menu-li -->
                        
                         <!-- END DASHBOARD -->
                     </ul><!--end .main-menu -->

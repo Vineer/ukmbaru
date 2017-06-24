@@ -237,7 +237,7 @@ function resetRating(id) {
                                     <div class="comment-body">
                                         <div class="comment-meta">
                                             <h6 class="m-0">
-                                                <?= $k->nama_komentar ?> Says: 
+                                                <?= $k->nama ?> Says: 
                                                 <span><?= $k->waktu ?></span>
                                             </h6>
                                         </div>
@@ -268,22 +268,14 @@ function resetRating(id) {
                                         <!--text area-->
 
                                         <div class="form-group col-sm-4">
-                                            <input type="text" placeholder="Your Full Name" name="nama" required>
+                                            <input type="hidden" placeholder="Your Full Name" name="nama" value="<?php echo $this->session->userdata('nim'); ?>">
                                         </div>
                                         <!--name-->
-
-                                        <div class="form-group col-sm-4">
-                                            <input type="email" placeholder="Your Email Address" name="email" required>
-                                        </div>
                                         <!--name-->
-
-                                        <div class="form-group col-sm-4">
-                                            <input type="text" placeholder="Your Website URL" name="website">
-                                        </div>
                                         <!--name-->
 
                                         <div class="form-group col-sm-12">
-                                            <button type="submit" class="btn bg-yellow">Post Comment</button>
+                                            <button type="submit" class="btn bg-yellow">post comment</button>
                                         </div>
                                     </div>
                                 </form>

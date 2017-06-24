@@ -5,7 +5,6 @@
 			<div class="offcanvas">
 			</div><!--end .offcanvas-->
 			<!-- END OFFCANVAS LEFT -->
-
 			<!-- BEGIN CONTENT-->
 			<div id="content">
 				<section class="style-default-bright">

@@ -64,7 +64,7 @@
                         <div class="main-title title-content text-center">
                             <h2 class="wow fadeInUp">Feedback Acara</h2>
                             <p>
-                                Silahkan kirim kritik dan saran untuk acara
+                                Silahkan kirim kritik dan saran untuk acara 
                             </p>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                             <div class="row">
                                 
                                 <div class="form-group col-sm-6">
-                                    <input type="text" placeholder="Nama" name="nama">
+                                    <input type="hidden" placeholder="Nama" name="nama" value="<?php echo $this->session->userdata('nim'); ?>">
                                     <?php 
                                     // $nmev = $this->db->select('nama_event')->from('event')->where('id_event',$id);
                                     $q1 = $this->db->query(" select nama_event from event where id_event=$id");
@@ -90,10 +90,7 @@
                                 </div>
                                 <!--email-->
 
-                                <div class="form-group col-sm-6">
-                                    <input type="text" placeholder="Email" name="email">
-                                </div>
-                                <!-- subject -->
+                                
 
                                 <div class="form-group col-sm-12">
                                     <textarea placeholder="Kritik" name="kritik"></textarea>

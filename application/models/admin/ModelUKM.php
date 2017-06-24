@@ -69,7 +69,7 @@ class ModelUKM extends CI_Model {
 	}
 
 	function AmbilDaftarTiketId($id) {
-		$data = $this->db->query("select a.kd_booking, a.nama_mhs, a.nim, a.acara, a.jml_tiket, a.acara, a.no_telp, a.email, a.status from data_pesan_tiket a join event b on a.id_event = b.id_event where b.id_ukm = $id");
+		$data = $this->db->query("select m.nama,m.no_telp, m.email, a.kd_booking, a.nim, a.acara, a.jml_tiket, a.acara, a.status from data_pesan_tiket a join event b on a.id_event = b.id_event join mahasiswa m on a.nim = m.nim where b.id_ukm = $id");
 		return $data;
 	}
 
@@ -79,8 +79,19 @@ class ModelUKM extends CI_Model {
 	}
 
 	function AmbilDaftarKomentarId($id) {
-		$data = $this->db->query("select a.id_komentar, a.jenis, a.id_artikel, a.nama_komentar, a.email, a.website, a.isi_komentar, a.waktu, b.judul from komentar a join artikel b on a.id_artikel = b.kd_artikel where b.id_ukm = $id");
+		$data = $this->db->query("select m.nama, a.id_komentar, a.jenis, a.id_artikel, a.isi_komentar, a.waktu, b.judul from komentar a join artikel b on a.id_artikel = b.kd_artikel join mahasiswa m on a.nim = m.nim where b.id_ukm = $id");
 		return $data;
+	}
+
+	function get_komen_event($id_artikel){
+			// return $this->db->order_by('id_komentar desc')->get_where($tabel, $where);
+			$this->db->select('k.isi_komentar,k.id_artikel,k.jenis,k.waktu,k.nim,m.nama');
+			$this->db->from('komentar k');
+			$this->db->join('mahasiswa m','k.nim = m.nim');
+			$this->db->where('jenis','event');
+			$this->db->where('id_artikel',$id_artikel);
+			$this->db->order_by('k.id_komentar desc');
+			return $this->db->get();
 	}
 
 	function AmbilDaftarPanitia() {
@@ -89,7 +100,7 @@ class ModelUKM extends CI_Model {
 	}
 
 	function AmbilDaftarPanitiaId($id) {
-		$data = $this->db->query("select a.kd_panitia, a.nim_mhs, a.nama_mhs, a.ukm_pilihan, a.fakultas, a.jurusan, a.divisi, a.no_hp, a.email, a.motivasi, a.status from data_panitia a join event b on a.ukm_pilihan = b.nama_event where b.id_ukm = $id");
+		$data = $this->db->query("select m.nim, m.nama, m.fakultas, m.jurusan, m.no_telp, m.email, a.kd_panitia, a.ukm_pilihan, a.divisi,a.motivasi, a.status from data_panitia a join event b on a.ukm_pilihan = b.nama_event join mahasiswa m on a.nim = m.nim where b.id_ukm = $id");
 		return $data;
 	}
 
@@ -99,7 +110,7 @@ class ModelUKM extends CI_Model {
 	}
 
 	function AmbilDaftarFeedbackId($id) {
-		$data = $this->db->query("select a.id_feedback, a.nama_event, a.nama, a.email, a.kritik, a.saran from feedback a join event b on a.nim = b.id_event where b.id_ukm = $id");
+		$data = $this->db->query("select m.nama, a.id_feedback, a.kritik, a.saran, m.email, b.nama_event from feedback a join event b on a.id_event = b.id_event join mahasiswa m on a.nim = m.nim where b.id_ukm = $id");
 		return $data;
 	}
 

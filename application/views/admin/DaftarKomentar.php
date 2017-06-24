@@ -24,8 +24,6 @@
 												<th>Jenis Artikel</th>
 												<th>Id Artikel</th>
 												<th>Nama</th>
-												<th>Email</th>
-												<th>Website</th>
 												<th>Isi Komentar</th>
 												<th>Judul</th>
 												<th>Waktu Komentar</th>
@@ -41,9 +39,7 @@
 												<td><?php echo $i?></td>
 												<td><?php echo $a->jenis?></td>
 												<td><?php echo $a->id_artikel?></td>
-												<td><?php echo $a->nama_komentar?></td>
-												<td><?php echo $a->email?></td>
-												<td><?php echo $a->website?></td>
+												<td><?php echo $a->nama?></td>
 												<td><?php echo $a->isi_komentar?></td>
 												<td><?=$a->judul?></td>
 												<td><?php echo $a->waktu?></td>

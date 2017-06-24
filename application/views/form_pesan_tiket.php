@@ -35,8 +35,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/style.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>" />
 
-    <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js')?>"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -89,29 +88,18 @@
                                                 <div class="row">
                                                     <div class="col-md-8 col-sm-8">
                                                         <div class="form-group">
+                                                        
+                                                        <input type="text" name="kd_ev" id="kd_ev" value="<?= $kodeunik; ?>" hidden>
+
                                                            <b>Nama</b>
                                                            <input type="hidden" name="id_event" value="<?php echo $this->uri->segment(3); ?>">
-                                                           <?php $usrnm = $this->session->userdata('username');
-                                                                 $nmfll = $this->db->query("select * FROM mahasiswa m inner join akun a on(m.nim=a.nim) WHERE username='$usrnm'"); ?>
-                                                            <?php foreach($nmfll->result_array() as $row) {?>
-                                                                <input type="text" name="nama" value="<?php echo $row['nama'];?>">
+                                                                <input type="text" name="nama" value="<?php echo $mhs['nama'];?>">
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>NIM</b>
-                                                            <input type="text" name="nim" value="<?php echo $row['nim'];?>">
+                                                            <input type="text" name="nim" value="<?php echo $mhs['nim'];?>">
                                                             <?php echo form_error('nim'); ?>
-                                                        </div>
-                                                        <div class="form-group">
-                                                           <b>No Telp</b>
-                                                            <input type="text" name="no_telp" value="<?php echo $row['no_telp'];?>">
-                                                            <?php echo form_error('no_telp'); ?>
-                                                        </div>
-                                                        <div class="form-group">
-                                                           <b>Email</b>
-                                                            <input type="text" name="email" value="<?php echo $row['email'];?>">
-                                                            <?php }?>
-                                                            <?php echo form_error('email'); ?>
                                                         </div>
                                                         <div class="form-group">
                                                            <b>Acara</b>
@@ -134,7 +122,7 @@
                                                         <div id="hasil"><input type="" name="" hidden></div>
                                                         <div class="form-group">
                                                            <b>Total Harga</b>
-                                                            <input type="text" placeholder="Jumlah Tiket *" id="total_harga" name="total_harga">
+                                                            <input type="text" placeholder="Total Harga *" id="total_harga" name="total_harga">
                                                             <!-- <?php echo form_error('jml_tiket'); ?> -->
                                                         </div>
                                                         <!-- order note -->

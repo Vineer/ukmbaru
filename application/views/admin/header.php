@@ -79,7 +79,7 @@
 								<li>
 									<a class="alert alert-callout alert-warning" href="javascript:void(0);">
 										<strong><?php echo $n->kd_booking; ?></strong><br/>
-										<small><?php echo $n->nama_mhs; ?></small>
+										<small><?php echo $n->nim ; ?></small>
 									</a>
 								</li>
 								<?php

@@ -37,10 +37,12 @@
 		}
 
 		function get_current_event(){
+			$now = date('Y-m-d');
 			$this->db->select('*');
 			$this->db->from('event');
 			$this->db->where('status_approval','1');
 			// $this->db->where('status_terlaksana','Belum');
+			$this->db->where('tanggal > CURDATE() ');
 			$this->db->order_by('tanggal','DESC');
 			$this->db->limit(3);
 			return $this->db->get()->result();
@@ -58,12 +60,22 @@
 			$this->db->select('*');
 			$this->db->from('event');
 			$this->db->where('status_approval','1');
-			$this->db->order_by('status_terlaksana','ASC');
+			// $this->db->order_by('status_terlaksana','ASC');
 			return $this->db->get()->result();
 		}
 
 		function get_komen($where,$tabel){
 			return $this->db->order_by('id_komentar desc')->get_where($tabel, $where);
+		}
+		function get_komen_artikel($id_artikel){
+			// return $this->db->order_by('id_komentar desc')->get_where($tabel, $where);
+			$this->db->select('k.isi_komentar,k.id_artikel,k.jenis,k.waktu,k.nim,m.nama');
+			$this->db->from('komentar k');
+			$this->db->join('mahasiswa m','k.nim = m.nim');
+			$this->db->where('jenis','artikel');
+			$this->db->where('id_artikel',$id_artikel);
+			$this->db->order_by('k.id_komentar desc');
+			return $this->db->get();
 		}
 		function insert($table, $isi) {
 			$this->db->insert($table, $isi);	
