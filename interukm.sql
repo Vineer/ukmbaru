@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2017 at 12:24 PM
+-- Generation Time: Jun 24, 2017 at 12:29 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -419,6 +419,7 @@ ALTER TABLE `data_pengurus`
 --
 ALTER TABLE `data_pesan_tiket`
   ADD PRIMARY KEY (`kd_booking`),
+  ADD UNIQUE KEY `kd_booking` (`kd_booking`),
   ADD KEY `nim` (`nim`),
   ADD KEY `id_event` (`id_event`);
 
