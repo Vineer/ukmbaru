@@ -730,7 +730,7 @@ class UKM extends CI_Controller {
 	}
 	function EditPanitiaEvent($id) {
 		
-		$divisi	= $this->input->post('divi');
+		$divisi	= $this->input->post('divget');
 
 		$isi = array(
 			'divisi'	=> $divisi,

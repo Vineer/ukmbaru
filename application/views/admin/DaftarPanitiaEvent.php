@@ -12,7 +12,6 @@
 					<div class="section-header">
 						<h2 class="text-primary">Daftar Panitia Event</h2>
 					</div>
-            			<input type="text" name="divget" id="divget">
 					<div class="section-body">
 						<div class="row">
 							<br><br>
@@ -79,11 +78,15 @@
 												<?php
 												}else{
 												?>
-													<button type="submit" id="acc" class="btn ink-reaction btn-raised btn-warning">
+													<!-- <button type="submit" id="acc" class="btn ink-reaction btn-raised btn-warning">
 													<a href="<?php echo base_url().'admin/UKM/EditPanitiaEvent/'.$a->kd_panitia?>" onClick="accdiv()">
 													Approve
 													</a>
-													</button>
+													</button> -->
+												<form method="post" action="<?php echo base_url().'admin/UKM/EditPanitiaEvent/'.$a->kd_panitia?>" >
+								            		<input type="hidden" name="divget" id="divget">
+													<input type="submit" name="acc" id="acc" class="btn ink-reaction btn-raised btn-warning" value="Approve">
+												<form>
 												<?php } ?>
 													<button type="submit" class="btn ink-reaction btn-raised btn-danger"><a href="<?php echo base_url().'admin/UKM/delete_panitia/'.$a->kd_panitia?>" onClick='konfirmhapus(event)'>Hapus</a></button>
 												</td>
