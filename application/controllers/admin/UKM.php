@@ -729,7 +729,11 @@ class UKM extends CI_Controller {
 		$this->load->view('admin/DaftarPanitiaEvent',$data);
 	}
 	function EditPanitiaEvent($id) {
+		
+		$divisi	= $this->input->post('divi');
+
 		$isi = array(
+			'divisi'	=> $divisi,
 			'status'	=> 'Diterima'
 		);
 

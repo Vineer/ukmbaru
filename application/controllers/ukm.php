@@ -32,18 +32,18 @@
 		}
 
 		function input_data_pengurus(){
-			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+			// $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 	        $this->form_validation->set_rules('nim', 'NIM', 'trim|required|numeric');
-	        $this->form_validation->set_rules('fakultas', 'Fakultas', 'trim|required');
+	        // $this->form_validation->set_rules('fakultas', 'Fakultas', 'trim|required');
 	        $this->form_validation->set_rules('ukm', 'UKM', 'trim|required');
-	        $this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required');
-	        $this->form_validation->set_rules('nohp', 'No Telepon', 'trim|required');
-	        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+	        // $this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required');
+	        // $this->form_validation->set_rules('nohp', 'No Telepon', 'trim|required');
+	        // $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 	        $this->form_validation->set_rules('motivasi', 'Motivasi', 'trim|required');
 	        if ($this->form_validation->run() == FALSE) {
 	        	$this->load->view('formulir-ukm');
 	        }else{
-				$nama = $this->input->post('nama');
+				// $nama = $this->input->post('nama');
 				$nim = $this->input->post('nim');
 				$fakultas = $this->input->post('fakultas');
 				$ukm = $this->input->post('ukm');
@@ -52,7 +52,7 @@
 				$email = $this->input->post('email');
 				$motivasi = $this->input->post('motivasi');
 				$cv = $_FILES['cv']['name'];
-				$foto = $_FILES['foto-profil']['name'];
+				// $foto = $_FILES['foto-profil']['name'];
 
 				if ($cv!='') {
 					// $image_path = dirname($_SERVER["SCRIPT_FILENAME"])."/foto/";
@@ -69,41 +69,44 @@
 			         $upload_data = $this->upload->data();
 			         $file_name = $upload_data['file_name'];
 				}
-				if ($foto!='') {
-					// $image_path = dirname($_SERVER["SCRIPT_FILENAME"])."/foto/";
-					$config['upload_path'] = './foto/';                        
-					// $config['upload_url'] = base_url()."foto/";                        
-			        $config['log_threshold'] = 1;
-			        $config['allowed_types'] = 'jpg|png|jpeg|gif';
-			        $config['max_size'] = '0'; // 0 = no file size limit
-			        $config['file_name']='profil-'.$foto;          
-			        $config['overwrite'] = false;
-			        $this->upload->initialize($config);
-			         $this->load->library('upload', $config);
-			         $this->upload->do_upload('foto-profil');
-			         $upload_data = $this->upload->data();
-			         $file_name = $upload_data['file_name'];
-				}
+				// if ($foto!='') {
+				// 	// $image_path = dirname($_SERVER["SCRIPT_FILENAME"])."/foto/";
+				// 	$config['upload_path'] = './foto/';                        
+				// 	// $config['upload_url'] = base_url()."foto/";                        
+			 //        $config['log_threshold'] = 1;
+			 //        $config['allowed_types'] = 'jpg|png|jpeg|gif';
+			 //        $config['max_size'] = '0'; // 0 = no file size limit
+			 //        $config['file_name']='profil-'.$foto;          
+			 //        $config['overwrite'] = false;
+			 //        $this->upload->initialize($config);
+			 //         $this->load->library('upload', $config);
+			 //         $this->upload->do_upload('foto-profil');
+			 //         $upload_data = $this->upload->data();
+			 //         $file_name = $upload_data['file_name'];
+				// }
 
 				$data = array(
-								'nama_mhs'=>$nama,
-								'nim_mhs'=>$nim,
-								'fakultas'=>$fakultas,
+								// 'nama_mhs'=>$nama,
+								'nim'=>$nim,
+								// 'fakultas'=>$fakultas,
 								'ukm_pilihan'=>$ukm,
-								'jurusan'=>$jurusan,
-								'no_hp'=>$nohp,
-								'email'=>$email,
+								// 'jurusan'=>$jurusan,
+								// 'no_hp'=>$nohp,
+								// 'email'=>$email,
 								'motivasi'=>$motivasi,
-								'cv'=>$cv,
-								'foto'=>$foto
+								'cv'=>$cv
+								// 'foto'=>$foto
 							);
 				$exec = $this->m_ukm->input_data($data,'data_pengurus');
 				if ($exec) {
 					$this->session->set_flashdata('pesan', array('message' => 'Berhasil mendaftar menjadi pengurus!', 'class' => 'success', 'title' => 'Sukses!'));
 					redirect('beranda/join_ukm');
-				}else{
-					$this->session->set_flashdata('pesan', array('message' => 'Gagal mendaftar menjadi pengurus!', 'class' => 'danger', 'title' => 'Gagal!'));
+				}
+				else{
+					$this->session->set_flashdata('pesan', array('message' => 'Berhasil mendaftar menjadi pengurus!', 'class' => 'success', 'title' => 'Sukses!'));
 					redirect('beranda/join_ukm');
+					// $this->session->set_flashdata('pesan', array('message' => 'Gagal mendaftar menjadi pengurus!', 'class' => 'danger', 'title' => 'Gagal!'));
+					// redirect('beranda/join_ukm');
 				}
 			}
 		}

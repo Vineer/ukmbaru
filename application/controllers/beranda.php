@@ -182,7 +182,7 @@ class beranda extends CI_Controller {
 		if ($this->session->userdata('username') == null) {
 			redirect('beranda/sign_in');
 		}
-		// $data['acara'] = $this->db->query("select * from event where status_terlaksana = 'Belum' ");
+		$data['acara'] = $this->db->query("SELECT * FROM event where tanggal >= CURDATE()");
 		$data['kodeunik'] = $this->m_ukm->buat_kode();
 		$username =  $this->session->userdata('username');
 		$data['mhs'] =$this->m_ukm->get_mhs_un($username)->row_array();
@@ -209,7 +209,7 @@ class beranda extends CI_Controller {
 	function tampilNamaPemesan() {
 		$output 				= '';
 		$id 					= $this->input->post('id');
-		$ambil 					= $this->db->query("select * FROM mahasiswa m inner join data_pesan_tiket a on(m.nim=a.nim) WHERE kd_booking=$id")->row_array();
+		$ambil 					= $this->db->query("select * FROM mahasiswa m inner join data_pesan_tiket a on(m.nim=a.nim) WHERE kd_booking='$id'")->row_array();
 		if ($id != '') {
 			$output 			.= "<input type='text' placeholder='Nama Mahasiswa *' name='nama' value='".$ambil['nama']."' readonly>";
 		}
@@ -219,7 +219,7 @@ class beranda extends CI_Controller {
 	function tampilNIMPemesan() {
 		$output 				= '';
 		$id 					= $this->input->post('id');
-		$ambil 					= $this->db->query("select nim from data_pesan_tiket where kd_booking = $id")->row_array();
+		$ambil 					= $this->db->query("select nim from data_pesan_tiket where kd_booking = '$id'")->row_array();
 		if ($id != '') {
 			$output 			.= "<input type='text' placeholder='NIM Mahasiswa *' name='nim' value='".$ambil['nim']."' readonly>";
 		}
@@ -229,7 +229,7 @@ class beranda extends CI_Controller {
 	function tampilAcaraPemesan() {
 		$output 				= '';
 		$id 					= $this->input->post('id');
-		$ambil 					= $this->db->query("select acara from data_pesan_tiket where kd_booking = $id")->row_array();
+		$ambil 					= $this->db->query("select acara from data_pesan_tiket where kd_booking = '$id'")->row_array();
 		if ($id != '') {
 			$output 			.= "<input type='text' placeholder='NIM Mahasiswa *' name='acara' value='".$ambil['acara']."' readonly>";
 		}

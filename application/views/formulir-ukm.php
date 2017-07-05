@@ -139,10 +139,10 @@
                                                            <b>Unggah CV</b>
                                                             <input type="file" class="form-control" name="cv">
                                                         </div>
-                                                         <div class="form-group">
+                                                         <!-- <div class="form-group">
                                                            <b>Unggah Foto</b>
                                                             <input type="file" class="form-control" name="foto-profil" ccept="image/*">
-                                                        </div 
+                                                        </div> -->
                                                         <!-- order note -->
                                                     </div>
 

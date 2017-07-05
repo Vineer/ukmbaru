@@ -28,6 +28,8 @@
 		<script type="text/javascript" src="<?php echo base_url()?>assets/superadmin_assets/js/libs/utils/html5shiv.js?1403934957"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>assets/superadmin_assets/js/libs/utils/respond.min.js?1403934956"></script>
 		<![endif]-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
 
 		<script type="text/javascript">
 			function konfirmhapus(e) {

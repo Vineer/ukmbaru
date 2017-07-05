@@ -12,6 +12,7 @@
 					<div class="section-header">
 						<h2 class="text-primary">Daftar Panitia Event</h2>
 					</div>
+            			<input type="text" name="divget" id="divget">
 					<div class="section-body">
 						<div class="row">
 							<br><br>
@@ -45,7 +46,28 @@
 												<td><?php echo $a->ukm_pilihan ?></td>
 												<td><?php echo $a->fakultas ?></td>
 												<td><?php echo $a->jurusan ?></td>
-												<td><?php echo $a->divisi ?></td>
+												<td><?php if ($a->status == 'Diterima') {
+											         echo $a->divisi;
+												}else{	
+											        echo '<select class="form-control" name="divisi" id="divisi">'; 
+													$optionsArr = explode(",", $a->divisi);   
+											        foreach ($optionsArr as $row){
+											            echo '<option value='.$row.'>'.$row.'</option>'; 
+											        } 
+											        echo '</select>';
+												}
+										        ?>
+										        <script>
+												$( "select" )
+												  .change(function() {
+												    var arr = $("select option:selected").map(function () {
+													return this.value;
+												    }).get();
+													document.getElementById("divget").value = arr;
+												  })
+												  .trigger( "change" );
+												</script>
+										        </td>
 												<td><?php echo $a->no_telp ?></td>
 												<td><?php echo $a->email ?></td>
 												<td><?php echo $a->motivasi ?></td>
@@ -57,9 +79,11 @@
 												<?php
 												}else{
 												?>
-													<a href="<?php echo base_url()?>admin/UKM/EditPanitiaEvent/<?php echo $a->kd_panitia?>">
-														<button type="button" class="btn ink-reaction btn-raised btn-warning">Approve</button>
+													<button type="submit" id="acc" class="btn ink-reaction btn-raised btn-warning">
+													<a href="<?php echo base_url().'admin/UKM/EditPanitiaEvent/'.$a->kd_panitia?>" onClick="accdiv()">
+													Approve
 													</a>
+													</button>
 												<?php } ?>
 													<button type="submit" class="btn ink-reaction btn-raised btn-danger"><a href="<?php echo base_url().'admin/UKM/delete_panitia/'.$a->kd_panitia?>" onClick='konfirmhapus(event)'>Hapus</a></button>
 												</td>
@@ -129,7 +153,24 @@
 		<!-- END BASE -->
 
 		<!-- BEGIN JAVASCRIPT -->
-		<script src="<?php echo base_url()?>assets_adm/js/libs/jquery/jquery-1.11.2.min.js"></script>
+		<script>
+        function accdiv() {
+            $(".acc").click(function() {
+            var divi = document.getElementById('divget').value;
+                $.ajax({
+                    // url: 'http://localhost/ukmbaru/admin/UKM/EditPanitiaEvent',
+                    method: 'post',
+                    data: {divi:divi},
+                    success: function(data) {
+                    	alert("Divisi: " + data);
+                        // $('#hasil').html(data);
+                    }
+                });
+            });
+        }
+    	</script>
+
+		<!-- <script src="<?php echo base_url()?>assets_adm/js/libs/jquery/jquery-1.11.2.min.js"></script> -->
 		<script src="<?php echo base_url()?>assets_adm/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 		<script src="<?php echo base_url()?>assets_adm/js/libs/bootstrap/bootstrap.min.js"></script>
 		<script src="<?php echo base_url()?>assets_adm/js/libs/spin.js/spin.min.js"></script>

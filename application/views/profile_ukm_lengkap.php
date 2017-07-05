@@ -70,7 +70,7 @@
                     <div class="col-md-8 col-sm-8 ">
                         <div class="blog-wrap blog-sngle pb-0 mb-50 ">
                             <figure class="post-thumbnail overlay">
-                                <img src="<?php echo $u->logo_ukm?>" alt="Blog image">
+                                <img src="<?php echo base_url().'assets/logoUkm/'.$u->logo_ukm ?>" alt="">
                             </figure>
                             <!--figure-->
 
